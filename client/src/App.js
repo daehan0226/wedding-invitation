@@ -13,10 +13,10 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <Box sx={{
-        // backgroundColor: 'brown.600',
         width: '100%',
         boxSizing: 'border-box',
         paddingBottom: 4,
+        position: 'relative',
       }}>
         <Header></Header>
         <Color></Color>

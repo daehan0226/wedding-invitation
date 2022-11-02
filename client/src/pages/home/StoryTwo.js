@@ -29,35 +29,51 @@ const images = [
 
 function StoryTwo() {
   return (
-    <Box 
-      m={{ mobile: 10, laptop: 15}} 
-      sx={{ 
-        minHeight: 400,
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        flexDirection: { mobile : 'column', laptop: 'row'}
-      }}
-    >
-      {images.map(image=>(
-          <Box key={image.title}>
-            <img
-              src={image.url}
-              width={String(250*image.ratio)}
-              height={String(250*image.ratio)}
-              style={{
-                borderRadius: '5px', 
-                margin: '10px',     
-                border: '3px solid #F8F6F1',
-              }}
-              alt={image.alt} 
-            />
-            <Typography sx={{ textAlign: 'center'}} >{image.title}</Typography>
-            <Typography sx={{ textAlign: 'center'}} >{image.date}</Typography>
-          </Box>
-        ))
-      }
-    </Box>
+    <>
+      <img
+          src={`${process.env.PUBLIC_URL}/images/12.jpg`}
+          style={{
+            position: 'absolute',
+            width: '100%',
+            zIndex: 1,
+            opacity: 0.5,
+            top: '400px',
+          }}
+        />
+      <Box 
+        m={{ mobile: 10, laptop: 15}} 
+        sx={{ 
+          minHeight: 400,
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'center',
+          flexDirection: { mobile : 'column', laptop: 'row'},
+          position: 'relative'
+        }}
+      >      
+        {images.map(image=>(
+            <Box key={image.title} sx={{
+              zIndex: 100,
+              position: 'relative',
+            }}>
+              <img
+                src={image.url}
+                width={String(250*image.ratio)}
+                height={String(250*image.ratio)}
+                style={{
+                  borderRadius: '5px', 
+                  margin: '10px',     
+                  border: '3px solid #F8F6F1',
+                }}
+                alt={image.alt} 
+              />
+              <Typography sx={{ textAlign: 'center'}} >{image.title}</Typography>
+              <Typography sx={{ textAlign: 'center'}} >{image.date}</Typography>
+            </Box>
+          ))
+        }
+      </Box>
+    </>
   );
 }
 

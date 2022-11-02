@@ -24,9 +24,9 @@ function StoryOne() {
             {"Eu volutpat odio facilisis mauris sit amet massa vitae tortor. Idest venenatis a condimentum vitae sapien pellentesque habitant, acestes turpis egestas integer eget aliquet nibh praese."}       
         </Typography>  
 
-        <Typography variant="body1" color={'text.white'}>
+        {/* <Typography variant="body1" color={'text.white'}>
             {"Elizabeth and Nicholas met in 2009 during senior year of high school, during an Intro to Photography class. Students were assigned a project that required them to shoot architectural buildings throughout San Francisco. One afternoon, they ran into each other on the street - they were photographing the same building, just from different vantage points! - and decided to shoot together. The afternoon turned to evening and ended with ice cream, where they talked until the shop closed. And the rest, as they say, is history."}       
-        </Typography>  
+        </Typography>   */}
       </Box>
     </Box>
   );

@@ -3,17 +3,29 @@ import Typography from '@mui/material/Typography';
 
 function StoryThree() {
   return (
-    <Box mt={2} sx={{ backgroundColor: 'brown.200'}}>
-      <Box 
-        m={1}
+    <Box mt={2} sx={{ backgroundColor: 'brown.200', position: 'relative'}}>
+      <img
+          src={`${process.env.PUBLIC_URL}/images/13.jpg`}
+          style={{
+            position: 'absolute',
+            width: '100%',
+            zIndex: 1,
+            opacity: 0.8,
+            top: '0px',
+          }}
+        />
+      <Box
         padding={{ 
           mobile: 7, laptop: 14
         }} 
         sx={{
+          margin: 'auto 0px',
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center',
-          alignItems: 'center'
+          alignItems: 'center',
+          zIndex: 100,
+          position: 'relative',
         }}  
       >
         <Typography mb={{ mobile: 4, laptop: 6}} variant="h4" color={'text.white'}>
