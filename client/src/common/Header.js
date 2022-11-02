@@ -2,7 +2,7 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 
-const title = 'Alex Dycus && Blake D.Brown'
+const title = 'Alex Dycus && \n Blake D.Brown'
 const links = [
   {
     'link': '/',
@@ -31,7 +31,7 @@ function Header() {
           backgroundImage: `url(${process.env.PUBLIC_URL}/images/8.jpg)`,
           width: '100%',
           height: { mobile: '400px', laptop: '500px'},
-          backgroundPosition: '0px -400px',
+          backgroundPosition: { mobile: '-100px -550px', laptop: '0px -400px'} ,
           opacity: '0.9'
       }}>
       <Box 
@@ -39,9 +39,10 @@ function Header() {
           height: { mobile: '400px', laptop: '500px'},
           display: 'flex', 
           justifyContent: 'center', 
-          alignItems: 'center'
+          alignItems: 'center',
+          padding: { mobile: '20px', laptop: '40px'}
         }}>
-          <Typography variant="h1" color={'text.white'}>
+          <Typography variant="h3" color={'text.white'}>
               {title}       
           </Typography>  
       </Box>
