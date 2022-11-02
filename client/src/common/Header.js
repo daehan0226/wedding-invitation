@@ -1,7 +1,7 @@
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 
-const title = 'Alxy Dycus && Blake D.Brown'
+const title = 'Alex Dycus && Blake D.Brown'
 const links = [
   {
     'link': '/',

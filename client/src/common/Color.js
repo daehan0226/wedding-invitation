@@ -1,5 +1,7 @@
+import { useState } from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
 
 const colorNames = [
   'pink',
@@ -31,9 +33,14 @@ for (const name of colorNames) {
 
 
 function Color() {
+  const [show, setShow] = useState(false);
+
+
+
+
   return (
     <>
-      <Box mb={1} sx={{ overflowX: 'scroll', display: 'flex' }} >
+      {show && (<Box mb={1} sx={{ overflowX: 'scroll', display: 'flex' }} >
         {colors.map(({hex}) => (
           <Box 
             variant="body1" 
@@ -52,15 +59,20 @@ function Color() {
               {hex}       
           </Box>     
         ))}          
-    </Box>
-      <Typography variant="body1" color={'text.black'} mb={2}>
-        <a
-          target="_blank" 
-          rel="noreferrer"
-          href='https://mui.com/material-ui/customization/color/#main-content'>
-            sample colors (click)
-        </a>  
-    </Typography>
+    </Box>)}
+      {show && (
+        <Typography variant="body1" color={'text.black'} mb={2}>
+          <a
+            target="_blank" 
+            rel="noreferrer"
+            href='https://mui.com/material-ui/customization/color/#main-content'>
+              sample colors (click)
+          </a>  
+        </Typography>
+      )}
+    <Button variant="body1" color={'text.black'} mb={2} onClick={()=>setShow(!show)}  >
+        {show ? 'hide' : 'show'} color samples
+    </Button>
   </>
   );
 }
