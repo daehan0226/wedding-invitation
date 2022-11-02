@@ -10,25 +10,34 @@ const defaultProps = {
   zoom: 11
 };
 
+const googleMapApiKey = "AIzaSyCpmHv9f2_7W6kKpYqfa5ZFG0cEzvo8mC4"
+
 const AnyReactComponent = ({ text }) => <div>{text}</div>;
 
 function Travel() {
   return (
-    <Box m={2} >
-      
-      <div style={{ height: '100vh', width: '100%' }}>
-      <GoogleMapReact
-        bootstrapURLKeys={{ key: "AIzaSyCpmHv9f2_7W6kKpYqfa5ZFG0cEzvo8mC4" }}
-        defaultCenter={defaultProps.center}
-        defaultZoom={defaultProps.zoom}
-      >
-        <AnyReactComponent
-          lat={59.955413}
-          lng={30.337844}
-          text="My Marker"
-        />
-      </GoogleMapReact>
-    </div>
+    <Box m={2} sx={{
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center'
+    }}>
+      <Box style={{ 
+        height: '50vh', 
+        width: '100%',
+        maxWidth: '800px'
+      }}>
+        <GoogleMapReact
+          bootstrapURLKeys={{ key: "" }}
+          defaultCenter={defaultProps.center}
+          defaultZoom={defaultProps.zoom}
+        >
+          <AnyReactComponent
+            lat={59.955413}
+            lng={30.337844}
+            text="My Marker"
+          />
+        </GoogleMapReact>
+      </Box>  
     </Box>
   );
 }

@@ -6,6 +6,7 @@ import Button from '@mui/material/Button';
 const colorNames = [
   'pink',
   'cyan',
+  'grey',
   'brown'
 ]
 const colorNumbers = [
@@ -35,14 +36,15 @@ for (const name of colorNames) {
 function Color() {
   const [show, setShow] = useState(false);
 
-
-
-
   return (
     <>
+      <Button variant="body1" color={'text.black'} sx={{backgroundColor:'grey.300'}} mb={2} onClick={()=>setShow(!show)}  >
+          {show ? 'hide' : 'show'} color samples
+      </Button>
       {show && (<Box mb={1} sx={{ overflowX: 'scroll', display: 'flex' }} >
         {colors.map(({hex}) => (
           <Box 
+            key={hex}
             variant="body1" 
             color={'white'} 
             backgroundColor={hex} 
@@ -70,9 +72,6 @@ function Color() {
           </a>  
         </Typography>
       )}
-    <Button variant="body1" color={'text.black'} mb={2} onClick={()=>setShow(!show)}  >
-        {show ? 'hide' : 'show'} color samples
-    </Button>
   </>
   );
 }
