@@ -1,4 +1,30 @@
 import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+
+
+const images = [
+  {
+    url: `${process.env.PUBLIC_URL}/images/1.jpg`,
+    alt: 'Albi',
+    title: 'Albi',
+    date: '2020.01.01',
+    ratio: 1
+  },
+  {
+    url: `${process.env.PUBLIC_URL}/images/6.jpg`,
+    alt: 'Fox',
+    title: 'Kate',
+    date: '2020.01.01',
+    ratio: 1.2
+  },
+  {
+    url: `${process.env.PUBLIC_URL}/images/7.jpg`,
+    alt: 'Sevi',
+    title: 'Sevi',
+    date: '2020.01.01',
+    ratio: 1
+  }
+]
 
 
 function StoryTwo() {
@@ -12,28 +38,25 @@ function StoryTwo() {
         justifyContent: 'center',
         flexDirection: { mobile : 'column', laptop: 'row'}
       }}
-      >
-       <img
-        src={`${process.env.PUBLIC_URL}/images/1.jpg`}
-        width='250'
-        height='250'
-        style={{borderRadius: '5px', margin: '10px'}}
-        alt='Albi' 
-      />
-      <img
-        src={`${process.env.PUBLIC_URL}/images/6.jpg`}
-        width='300'
-        height='300'
-        style={{borderRadius: '5px',  margin: '10px'}}
-        alt='Fox' 
-      />
-      <img
-        src={`${process.env.PUBLIC_URL}/images/7.jpg`}
-        width='250'
-        height='250'
-        style={{borderRadius: '5px', margin: '10px'}}
-        alt='Sevi' 
-      />
+    >
+      {images.map(image=>(
+          <Box key={image.title}>
+            <img
+              src={image.url}
+              width={String(250*image.ratio)}
+              height={String(250*image.ratio)}
+              style={{
+                borderRadius: '5px', 
+                margin: '10px',     
+                border: '3px solid #F8F6F1',
+              }}
+              alt={image.alt} 
+            />
+            <Typography sx={{ textAlign: 'center'}} >{image.title}</Typography>
+            <Typography sx={{ textAlign: 'center'}} >{image.date}</Typography>
+          </Box>
+        ))
+      }
     </Box>
   );
 }

@@ -6,12 +6,17 @@ import StoryFour from './StoryFour';
 
 function Home() {
   return (
-    <>
+    <Box
+      sx={{
+        width: '100%',
+        height: '100%',
+      }}
+    >
       <StoryOne></StoryOne>
       <StoryTwo></StoryTwo>
       <StoryThree></StoryThree>
       <StoryFour></StoryFour>
-    </>
+    </Box>
   );
 }
 
