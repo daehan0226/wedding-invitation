@@ -1,5 +1,6 @@
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
 
 const title = 'Alex Dycus && Blake D.Brown'
 const links = [
@@ -57,11 +58,16 @@ function Header() {
         height={{mobile: 40, laptop: 50, desktop: 60}}
       >
         {links.map(({link, title}) => (
-          <a key={title} href={link}>
-          <Typography variant="body1" color={'text.white'}>
+          <Button key={title} variant="text" href={link} sx={{
+            "& .MuiTouchRipple-root span":{
+              backgroundColor: 'white!important',
+              opacity: .3,
+            }
+          }} >
+            <Typography variant="body1" color={'text.white'}>
               {title}       
-          </Typography>     
-            </a>
+            </Typography>   
+          </Button>
         ))}        
       </Box>
       </>

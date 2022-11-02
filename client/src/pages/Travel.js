@@ -27,7 +27,7 @@ function Travel() {
         maxWidth: '800px'
       }}>
         <GoogleMapReact
-          bootstrapURLKeys={{ key: "" }}
+          bootstrapURLKeys={{ key: googleMapApiKey }}
           defaultCenter={defaultProps.center}
           defaultZoom={defaultProps.zoom}
         >
