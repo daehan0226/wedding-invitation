@@ -92,16 +92,37 @@ function Rsvp() {
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'left',
-          minHeight: '700',
+          minHeight: attend === 1 ? '650' : '500',
           borderRadius: '10px',
           padding: '10px',
           boxSizing: 'border-box'
         }} 
       >
         {/* Title */}
-        <Typography sx={{ textAlign: 'center' }}  variant="h3" color={'brown.800'} >
-              {"RSVP"}       
-        </Typography>
+        <Box 
+          sx={{
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center'
+          }}
+        >
+          <img
+            src={`${process.env.PUBLIC_URL}/images/flower2.png`}
+            width='50px'
+            height='50px'
+            alt=''
+          />
+          <Typography sx={{ textAlign: 'center' }}  variant="h3" color={'brown.800'} >
+                {"RSVP"}       
+          </Typography>
+          <img
+            src={`${process.env.PUBLIC_URL}/images/flower2.png`}
+            width='50px'
+            height='50px'
+            alt=''
+          />
+        </Box>
+          
 
 
         {/* Name */}
@@ -192,11 +213,12 @@ function Rsvp() {
       <Button 
         variant='body1'
         color={'text.black'} 
-        sx={{ marginTop: 'auto', marginBottom: '20px' }} 
+        sx={{ marginTop: attend === 1 ? 'auto' : '20px', marginBottom: '20px' }} 
         onClick={confirmSubmit}
         disabled={name === '' || nameError !== ''}
       >
         Submit
+          
       </Button>
         <Typography sx={{ textAlign: 'center' }} variant="caption" color={'grey.500'}>
           If you have any questions please send an email to email@email.com       
