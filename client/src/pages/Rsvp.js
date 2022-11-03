@@ -6,20 +6,19 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import Button from '@mui/material/Button';
-import FormLabel from '@mui/material/FormLabel';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import TextField from '@mui/material/TextField';
+import { useConfirm } from '../hooks/useConfrim'
 import { useEffect, useState } from 'react';
 
 function Rsvp() {
   const [name, setName] = useState('');
   const [message, setMessage] = useState('');
   const [nameError, setNameError] = useState('');
-  const [number, setNumber] = useState('');
-  const [numberError, setNumberError] = useState('');
-  const [attend, setAttend] = useState(true);
+  const [number, setNumber] = useState(0);
+  const [attend, setAttend] = useState(0);
   const [meal, setMeal] = useState('');
 
   const handleMealChange = (event) => {
@@ -28,16 +27,8 @@ function Rsvp() {
 
   
   const handleAttendChange = (event) => {
-    setAttend(event.target.value);
+    setAttend(Number(event.target.value));
   };
-
-  useEffect(()=>{
-    setNumberError('')
-    if (number && number < 1) {
-      setNumberError('Number of Group must be grater than 1')
-    }
-  },[number])
-
   
   function onBlurHandler(name) {
     if (name === '') {
@@ -46,6 +37,31 @@ function Rsvp() {
       setNameError('')
     }
   }
+
+  useEffect(()=>{
+    if (Number(number) < 0) {
+      setNumber(0)
+    }
+  },[number])
+
+  
+  useEffect((prev)=>{
+    if (prev !== '' && name !== '') {
+      setNameError('')
+    }
+  },[name])
+
+  const confirmSubmit = useConfirm(
+    `Is this correct?
+      Name: ${name}
+      Attend: ${attend? 'Yes': 'No'}
+      ${attend && (`Group of people: ${number}`)}
+      ${attend && (`Meal: ${meal}`)}
+      Message: ${message}
+    `,
+    handleSubmit,
+    () => {}
+  );
 
   function handleSubmit() {
     const data = {
@@ -68,7 +84,6 @@ function Rsvp() {
         opacity: '0.9'
     }}
     >
-      
       <Box
         sx={{ 
           margin: '10px auto',
@@ -83,80 +98,110 @@ function Rsvp() {
           boxSizing: 'border-box'
         }} 
       >
-        <Typography sx={{ textAlign: 'center' }}  variant="h3" color={'brown.800'}>
+        {/* Title */}
+        <Typography sx={{ textAlign: 'center' }}  variant="h3" color={'brown.800'} >
               {"RSVP"}       
         </Typography>
-        <Typography sx={{ textAlign: 'left' }} mt={4} variant="body1" color={'text.black'}>
-              Name       
+
+
+        {/* Name */}
+        <Typography sx={{ textAlign: 'left' }} mt={3} variant="body1" color={'text.black'}>
+              Name
         </Typography>
         <Input
           type='text'  
+          inputProps={{ maxLength: 70 }}
           onChange={(e)=>{setName(e.target.value)}} 
           value={name}
           onBlur={(e)=>onBlurHandler(e.target.value)}
           error={nameError !== ''}
         />
         <Typography sx={{ textAlign: 'left' }} variant="caption " color={'red'}>
-              {nameError}       
+            {nameError}       
         </Typography>
-        <Typography sx={{ textAlign: 'left' }} mt={4} variant="body1" color={'text.black'}>
-          Number of Group       
+        <Typography sx={{ textAlign: 'right' }} variant="caption" color={'grey.500'}>
+          {name.length > 60 && (`(${name.length}/70)`)}
         </Typography>
-        <Input
-          type='number' 
-          onChange={(e)=>setNumber(e.target.value)} 
-          value={number} 
-          error={numberError !== ''} 
-        />
-        <Typography sx={{ textAlign: 'left' }} variant="caption " color={'red'}>
-              {numberError}       
-        </Typography>
+
+        {/* Attending */}
         <FormControl fullWidth sx={{marginTop: 4}}>
-          <InputLabel id="demo-simple-select-label">Meal</InputLabel>
-          <Select
-            labelId="demo-simple-select-label"
-            id="demo-simple-select"
-            color=""
-            value={meal}
-            label="Meal"
-            onChange={handleMealChange}
+          <Typography sx={{ textAlign: 'left' }} variant="body1" color={'text.black'}>
+            Will you be attending?
+          </Typography>
+          <RadioGroup
+            aria-labelledby="demo-controlled-radio-buttons-group"
+            name="controlled-radio-buttons-group"
+            value={attend}
+            onChange={handleAttendChange}
+            sx={{
+              display: 'flex',
+              justifyContent: { mobile : 'left', laptop: 'space-around' },
+              flexDirection: 'row',
+            }}
           >
-            <MenuItem value={"Option1"}>Option1</MenuItem>
-            <MenuItem value={"Option2"}>Option2</MenuItem>
-            <MenuItem value={"Option3"}>Option3</MenuItem>
-          </Select>
+            <FormControlLabel value={1} control={<Radio />} label="Yes, can't wait" />
+            <FormControlLabel value={0} control={<Radio />} label="No, can't make it" />
+          </RadioGroup>
         </FormControl>
-        <FormControl fullWidth sx={{marginTop: 4}}>
-        <FormLabel>Will you be attending?</FormLabel>
-        <RadioGroup
-          aria-labelledby="demo-controlled-radio-buttons-group"
-          name="controlled-radio-buttons-group"
-          value={attend}
-          onChange={handleAttendChange}
-          sx={{
-            display: 'flex',
-            justifyContent: 'space-around',
-            flexDirection: 'row',
-          }}
-        >
-          <FormControlLabel value={true} control={<Radio />} label="Yes" />
-          <FormControlLabel value={false} control={<Radio />} label="No" />
-        </RadioGroup>
-      </FormControl>
+        
+        {attend === 1 && (
+          <>
+          {/* Number of people */}
+            <Typography sx={{ textAlign: 'left' }} mt={3} variant="body1" color={'text.black'}>
+              Are you bringing +1?  
+            </Typography>
+            <Input
+              type='number' 
+              onChange={(e)=>setNumber(e.target.value)} 
+              inputProps={{ min: 0 }}
+              value={number} 
+            />
+            <FormControl fullWidth sx={{marginTop: 4}}>
+              <InputLabel id="demo-simple-select-label">Meal</InputLabel>
+              <Select
+                labelId="demo-simple-select-label"
+                id="demo-simple-select"
+                color=""
+                value={meal}
+                label="Meal"
+                onChange={handleMealChange}
+              >
+                <MenuItem value={"No"}>No</MenuItem>
+                <MenuItem value={"Option1"}>Option1</MenuItem>
+                <MenuItem value={"Option2"}>Option2</MenuItem>
+                <MenuItem value={"Option3"}>Option3</MenuItem>
+              </Select>
+            </FormControl>
+          </>
+        )}
+      
+      {/* Message */}
       <TextField
             id="outlined-multiline-static"
             label="Message"
             multiline
             rows={4}
-            sx={{marginTop: 4}}
+            inputProps={{ maxLength: 500 }}
+            sx={{marginTop: 3}}
             value={message}
             onChange={e=>setMessage(e.target.value)}
           />
-      <Button variant="body1" color={'text.black'} sx={{ marginTop: 'auto', marginBottom: '20px' }} onClick={handleSubmit}  >
-          Submit
+        <Typography sx={{ textAlign: 'right' }} variant="caption" color={'grey.500'}>
+              {message.length > 450 && (`(${message.length}/500)`)}
+        </Typography>
+      <Button 
+        variant='body1'
+        color={'text.black'} 
+        sx={{ marginTop: 'auto', marginBottom: '20px' }} 
+        onClick={confirmSubmit}
+        disabled={name === '' || nameError !== ''}
+      >
+        Submit
       </Button>
+        <Typography sx={{ textAlign: 'center' }} variant="caption" color={'grey.500'}>
+          If you have any questions please send an email to email@email.com       
+        </Typography>
       </Box>
-      
     </Box>
   );
 }
