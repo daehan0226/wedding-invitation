@@ -31,11 +31,11 @@ function Travel() {
           defaultCenter={defaultProps.center}
           defaultZoom={defaultProps.zoom}
         >
-          {/* <AnyReactComponent
-            lat={59.955413}
-            lng={30.337844}
+          <AnyReactComponent
+            lat={defaultProps.center.lat}
+            lng={defaultProps.center.lng}
             text="My Marker"
-          /> */}
+          />
         </GoogleMapReact>
       </Box>  
     </Box>
