@@ -1,23 +1,9 @@
 version: "3"
 services:
-  nest:
-    build:
-      context: ./api
-    container_name: "${NEST}"
-    ports:
-      - "${NEST_EXTERNAL_PORT}:${NEST_PORT}"
-    restart: "unless-stopped"
-    env_file:
-      - ./.env
-    depends_on:
-      - mongo
-
   mongo:
     image: mongo
     restart: always
     container_name: "${MONGO}"
-    expose:
-      - "${MONGO_PORT}"
     ports:
       - "${MONGO_EXTERNAL_PORT}:${MONGO_PORT}"
     volumes:
@@ -27,10 +13,3 @@ services:
       MONGO_INITDB_ROOT_USERNAME: "${MONGO_USERNAME}"
       MONGO_INITDB_ROOT_PASSWORD: "${MONGO_PASSWORD}"
       MONGO_INITDB_DATABASE: "${MONGO_DATABASE}"
-
-  # redis:
-  #   image: redis:alpine
-  #   command: redis-server
-  #   container_name: "${REDIS}"
-  #   expose:
-  #     - "${REDIS_PORT}"
