@@ -37,6 +37,18 @@ export class ConfigService {
     };
   }
 
+  get redisConfig() {
+    const host = process.env.REDIS;
+    const port = process.env.REDIS_PORT ?? process.env.REDIS_EXTERNAL_PORT;
+    this.logger.debug(`redis host: ${host} port: ${port}`);
+    return {
+      redis: {
+        host,
+        port,
+      },
+    };
+  }
+
   get mailConfig() {
     return {
       transport: {
