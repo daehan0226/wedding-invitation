@@ -34,7 +34,7 @@ function Travel() {
           <AnyReactComponent
             lat={defaultProps.center.lat}
             lng={defaultProps.center.lng}
-            text="My Marker"
+            text="Venue"
           />
         </GoogleMapReact>
       </Box>  
