@@ -49,6 +49,10 @@ export class ConfigService {
     };
   }
 
+  get emailRecipient() {
+    return process.env.SMTP_HOST_TO;
+  }
+
   get mailConfig() {
     return {
       transport: {
