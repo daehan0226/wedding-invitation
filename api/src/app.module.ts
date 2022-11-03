@@ -6,9 +6,11 @@ import { SharedModule } from './modules/shared/shared.module';
 import { MongooseModule } from '@nestjs/mongoose';
 import { ConfigService } from './modules/shared/config.service';
 import { ConfigModule } from '@nestjs/config';
+import { AuthModule } from './modules/auth/auth.module';
 
 @Module({
   imports: [
+    AuthModule,
     SharedModule,
     ConfigModule.forRoot({
       isGlobal: true,
