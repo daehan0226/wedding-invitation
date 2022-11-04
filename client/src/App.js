@@ -1,24 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes } from "react-router-dom";
+import { ThemeProvider } from '@mui/material/styles';
+import Box from '@mui/material/Box';
+
+import Travel from './pages/Travel';
+import Home from './pages/home/Home';
+import Header from './common/Header';
+import Color from './common/Color';
+import theme from './ui/theme';
+import Rsvp from "./pages/Rsvp";
+import Manage from "./pages/manage/Manage";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <Header></Header>
+      <Color></Color>
+      <Box sx={{
+        width: '100%',
+        height: '100%',
+        boxSizing: 'border-box',
+        paddingBottom: 4,
+        position: 'relative',
+        display: 'block',
+        flexDirection: 'column',
+      }}>
+        
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/rsvp" element={<Rsvp />} />
+          <Route path="/travel" element={<Travel />} />
+          <Route path="/manage" element={<Manage />} />
+          {/* <Route path="/room/:roomName" element={<Chatroom />} /> */}
+        </Routes>    
+      </Box>       
+    </ThemeProvider>
   );
 }
 
