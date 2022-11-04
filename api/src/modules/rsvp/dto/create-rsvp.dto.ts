@@ -5,6 +5,7 @@ import {
   MaxLength,
   MinLength,
   IsOptional,
+  IsBoolean,
 } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
 
@@ -24,6 +25,12 @@ export class CreateRsvpDto {
   @IsOptional()
   @MaxLength(2000)
   message: string;
+
+  @ApiProperty({
+    description: 'attend or not',
+  })
+  @IsBoolean()
+  attend: boolean;
 
   @IsNumber()
   @Min(1)

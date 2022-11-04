@@ -8,16 +8,22 @@ import { SharedModule } from './modules/shared/shared.module';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
-  const config = new DocumentBuilder()
-    .setTitle('Wedding swagger')
-    .setDescription('The wedding API description')
-    .setVersion('1.0')
-    .build();
-  const document = SwaggerModule.createDocument(app, config);
-  SwaggerModule.setup('api', app, document);
+  console.log(`env ${process.env.ENV}`);
+  if (process.env.ENV === 'local') {
+    console.log(`build swagger`);
+    const config = new DocumentBuilder()
+      .setTitle('Wedding swagger')
+      .setDescription('The wedding API description')
+      .setVersion('1.0')
+      .build();
+
+    const document = SwaggerModule.createDocument(app, config);
+    SwaggerModule.setup('api', app, document);
+  }
 
   const configService = app.select(SharedModule).get(ConfigService);
   app.useGlobalPipes(new ValidationPipe());
+  app.enableCors();
   await app.listen(configService.port);
 }
 bootstrap();
