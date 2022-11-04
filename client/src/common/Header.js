@@ -42,7 +42,7 @@ function Header() {
           alignItems: 'center',
           padding: { mobile: '20px', laptop: '40px'}
         }}>
-          <Typography variant="h3" color={'text.white'}>
+          <Typography variant="h3" color={'text.white'} sx={{ fontFamily: 'jose'}} >
               {title}       
           </Typography>  
       </Box>

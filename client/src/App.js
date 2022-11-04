@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import { ThemeProvider } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 
+import './App.css'
 import Travel from './pages/Travel';
 import Home from './pages/home/Home';
 import Header from './common/Header';

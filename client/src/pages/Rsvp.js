@@ -12,6 +12,8 @@ import RadioGroup from '@mui/material/RadioGroup';
 import TextField from '@mui/material/TextField';
 import { useConfirm } from '../hooks/useConfrim'
 import { useEffect, useState } from 'react';
+import axios from 'axios';
+import { API, MAIL } from '../config/config';
 
 function Rsvp() {
   const [name, setName] = useState('');
@@ -55,9 +57,9 @@ function Rsvp() {
     `Is this correct?
       Name: ${name}
       Attend: ${attend? 'Yes': 'No'}
-      ${attend && (`Group of people: ${number}`)}
-      ${attend && (`Meal: ${meal}`)}
       Message: ${message}
+      ${attend === 1 ? (`Group of people: ${number}`) : ''}
+      ${attend === 1 ? (`Meal: ${meal}`) : ''}
     `,
     handleSubmit,
     () => {}
@@ -66,12 +68,18 @@ function Rsvp() {
   function handleSubmit() {
     const data = {
       name,
-      number,
+      numberOfPeople: Number(number),
       meal,
-      attend,
+      attend: attend === 1,
       message
     }
     console.dir(data)
+
+    axios({
+      method: 'post',
+      url: `http://${API}/rsvp`,
+      data
+    })
   }
 
   return (
@@ -221,7 +229,7 @@ function Rsvp() {
           
       </Button>
         <Typography sx={{ textAlign: 'center' }} variant="caption" color={'grey.500'}>
-          If you have any questions please send an email to email@email.com       
+          {`If you have any questions please send an email to `}<a href={`mailto:${MAIL}`}>{`${MAIL}`}</a>
         </Typography>
       </Box>
     </Box>

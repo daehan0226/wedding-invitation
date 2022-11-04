@@ -1,9 +1,9 @@
 import { ApiProperty } from "@nestjs/swagger";
-import { IsNumber, IsString } from "class-validator";
-import { RsvpEntity } from "../entities/rsvp.entity";
+import { IsString } from "class-validator";
+import { UserEntity } from "../entities/user.entity";
 
 
-export class RsvpOutDto {
+export class UserOutDto {
     
     @IsString()
     @ApiProperty({
@@ -17,16 +17,9 @@ export class RsvpOutDto {
     })
     name: string;
 
-    @IsNumber()
-    @ApiProperty({
-        description: 'number of people including the requester',
-    })
-    numberOfPeople: number;
-
-
     @IsString()
     @ApiProperty({
-        description: 'requested time',
+        description: 'created time',
     })
     createdAt: Date;
 
@@ -38,10 +31,9 @@ export class RsvpOutDto {
     updatedAt: Date;
 
 
-    constructor(model: RsvpEntity) {
+    constructor(model: UserEntity) {
         this.id = String(model._id)
         this.name = model.name
-        this.numberOfPeople = model.numberOfPeople
         this.createdAt = model.createdAt
         this.updatedAt = model.updatedAt
     }
