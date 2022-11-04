@@ -96,4 +96,11 @@ export class ConfigService {
       signOptions: { expiresIn },
     };
   }
+
+  get adminUser() {
+    return {
+      name: process.env.ADMIN_USERNAME,
+      password: process.env.ADMIN_PASSWORD,
+    };
+  }
 }

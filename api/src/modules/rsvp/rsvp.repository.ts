@@ -7,14 +7,17 @@ import { RsvpEntity } from './entities/rsvp.entity';
 
 @Injectable()
 export class RsvpRepository {
-
   constructor(
     @InjectModel('rsvps')
-    private readonly  _rsvpEntity: Model<RsvpEntity>
-) {}
+    private readonly _rsvpEntity: Model<RsvpEntity>,
+  ) {}
 
-  async create(createRsvpDto: CreateRsvpDto): Promise<RsvpEntity> {
-    return await this._rsvpEntity.create(createRsvpDto);
+  async create(dto: CreateRsvpDto): Promise<RsvpEntity> {
+    const numberOfPeople = dto.attend ? dto.numberOfPeople + 1 : 0;
+    return await this._rsvpEntity.create({
+      ...dto,
+      numberOfPeople,
+    });
   }
 
   async findAll(): Promise<RsvpEntity[]> {
@@ -22,20 +25,21 @@ export class RsvpRepository {
   }
 
   async update(id: string, updateRsvpDto: UpdateRsvpDto) {
-    return await this._rsvpEntity
-      .findByIdAndUpdate({
-        _id: new Types.ObjectId(id)
-      },{
+    return await this._rsvpEntity.findByIdAndUpdate(
+      {
+        _id: new Types.ObjectId(id),
+      },
+      {
         $set: {
-          ...updateRsvpDto
-        }
-      });
+          ...updateRsvpDto,
+        },
+      },
+    );
   }
 
   async remove(id: string) {
-    return await this._rsvpEntity
-      .findByIdAndRemove({
-        _id: new Types.ObjectId(id)
-      });
+    return await this._rsvpEntity.findByIdAndRemove({
+      _id: new Types.ObjectId(id),
+    });
   }
 }
