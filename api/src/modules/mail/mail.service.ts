@@ -12,18 +12,26 @@ export class MailService {
   ) {}
 
   async sendRsvpSubmit(rsvp: RsvpOutDto) {
-    const { name, message, attend } = rsvp;
-    const msg = `${name}, ${message}, ${attend}`;
+    const { name, message, attend, numberOfPeople } = rsvp;
+    const attendStr = attend ? 'YES' : 'NO';
+    const msg = `${name}, ${message}, ${attendStr}, ${numberOfPeople}`;
     try {
-      this.logger.debug(`send email ${msg}`);
+      this.logger.debug(
+        `send mail ${msg} to ${this.configService.emailRecipient}`,
+      );
       await this.mailerService.sendMail({
-        to: this.configService.emailRecipient,
-        subject: 'A RSVP',
+        to: this.configService.emailRecipient.split(','),
+        subject: 'A NEW RSVP',
         template: './rsvp-submit',
         context: {
-          name,
-          attend: attend ? 'YES' : 'NO',
-          message,
+          data: [
+            {
+              name,
+              message,
+              attend: attendStr,
+              numberOfPeople,
+            },
+          ],
         },
       });
       this.logger.debug(`mail sent ${msg}`);
