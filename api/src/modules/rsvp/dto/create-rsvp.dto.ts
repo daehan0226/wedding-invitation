@@ -7,7 +7,7 @@ import {
   IsOptional,
   IsBoolean,
 } from 'class-validator';
-import { ApiProperty } from '@nestjs/swagger';
+import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 
 export class CreateRsvpDto {
   @ApiProperty({
@@ -33,8 +33,8 @@ export class CreateRsvpDto {
   attend: boolean;
 
   @IsNumber()
-  @Min(1)
-  @ApiProperty({
+  @IsOptional()
+  @ApiPropertyOptional({
     description: 'The number of people incluing requester',
   })
   numberOfPeople: number;
