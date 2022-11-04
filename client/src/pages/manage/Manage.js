@@ -23,33 +23,41 @@ function Manage() {
     }
   },[])
   
-  const config = {
-    headers: { Authorization: `Bearer ${JSON.parse(localStorage.getItem("token")).access_token}` }
-  };
+  function getToken() {
+    const token = JSON.parse(localStorage.getItem("token"))
+    if (token) {
+      return token.access_token
+    }
+    return null
+  }
 
-  function validateToken() {
-  console.log(config)
-  axios.get( 
-      `http://${API}/auth/me`,
-      config,
-    ).then((res)=> {
-      if (res.status === 200 && res.data?.payload?.name) {
-        setIsLoggedIn(true)
-        setUsername(res.data.payload.name)
-      }
-      // console.log(`res: ${JSON.stringify(res)}`)
-    }).catch((err)=> {
-      setIsLoggedIn(false)
-      setUsername("")
-      // console.log(`err: ${err}`)
-    });
+  function validateToken(token) {
+    axios.get( 
+        `http://${API}/auth/me`,
+        {
+          headers: { Authorization: `Bearer ${token}` }
+        },
+      ).then((res)=> {
+        if (res.status === 200 && res.data?.payload?.name) {
+          setIsLoggedIn(true)
+          setUsername(res.data.payload.name)
+        }
+        // console.log(`res: ${JSON.stringify(res)}`)
+      }).catch((err)=> {
+        setIsLoggedIn(false)
+        setUsername("")
+        // console.log(`err: ${err}`)
+      });
   }
 
 
 function getRsvp() {
+  const token = getToken()
   axios.get( 
     `http://${API}/rsvp`,
-    config,
+    {
+      headers: { Authorization: `Bearer ${token}` }
+    },
   ).then((res)=> {
     if (res.status === 200 && res.data) {
       setRsvp(res.data)
@@ -61,7 +69,10 @@ function getRsvp() {
 }
 
   useEffect(()=>{
-    validateToken()
+    const token = getToken()
+    if (token) {
+      validateToken(token)
+    }
   }, [])
 
   
