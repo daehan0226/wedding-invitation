@@ -53,6 +53,17 @@ export class ConfigService {
     return process.env.SMTP_HOST_TO;
   }
 
+  get rateLimitConfig() {
+    const ttl = 5;
+    const limit = 20;
+    this.logger.debug(`rate limit ttl: ${ttl}, limit: ${limit}`);
+
+    return {
+      ttl,
+      limit,
+    };
+  }
+
   get mailConfig() {
     return {
       transport: {
@@ -73,6 +84,16 @@ export class ConfigService {
           strict: true,
         },
       },
+    };
+  }
+
+  get jwtConfig() {
+    const secret = process.env.JWT_SECRET;
+    const expiresIn = process.env.JWT_EXPIRE;
+    this.logger.debug(`jwt secret: ${secret}, expiresIn: ${expiresIn}`);
+    return {
+      secret,
+      signOptions: { expiresIn },
     };
   }
 }

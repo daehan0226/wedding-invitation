@@ -5,8 +5,6 @@ import { AppModule } from './app.module';
 import { ConfigService } from './modules/shared/config.service';
 import { SharedModule } from './modules/shared/shared.module';
 
-const port = Number(process.env.NEST_PORT?? 8002);
-
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 

@@ -9,12 +9,14 @@ import {
   Logger,
   HttpCode,
   HttpStatus,
+  UseGuards,
 } from '@nestjs/common';
 import { RsvpService } from './rsvp.service';
 import { CreateRsvpDto } from './dto/create-rsvp.dto';
 import { UpdateRsvpDto } from './dto/update-rsvp.dto';
 import { RsvpOutDto } from './dto/rsvp-out.dto';
 import { MailService } from 'src/modules/mail/mail.service';
+import { JwtAuthGuard } from '../auth/jwt-auth.guard';
 @Controller('rsvp')
 export class RsvpController {
   private readonly logger = new Logger(RsvpController.name);
@@ -35,6 +37,7 @@ export class RsvpController {
   }
 
   @HttpCode(HttpStatus.OK)
+  @UseGuards(JwtAuthGuard)
   @Get()
   async findAll(): Promise<RsvpOutDto[]> {
     const result = await this.rsvpService.findAll();
