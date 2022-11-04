@@ -8,31 +8,38 @@ import { UserEntity } from './entities/user.entity';
 
 @Injectable()
 export class UserRepository extends MongoGenericRepository<UserEntity> {
-
   constructor(
     @InjectModel('users')
-    private readonly  _userEntity: Model<UserEntity>
-) {
-  super(_userEntity)
-}
+    private readonly _userEntity: Model<UserEntity>,
+  ) {
+    super(_userEntity);
+  }
 
   async create(dto: CreateUserDto): Promise<UserEntity> {
     return await this._userEntity.create(dto);
   }
 
+  async createAdminUser(dto: CreateUserDto): Promise<UserEntity> {
+    return await this._userEntity.create({
+      ...dto,
+      isAdmin: true,
+    });
+  }
 
   async findByName(name: string): Promise<UserEntity> {
-    return await this._userEntity.findOne({name}).exec();
+    return await this._userEntity.findOne({ name }).exec();
   }
 
   async update(id: string, dto: UpdateUserDto) {
-    return await this._userEntity
-      .findByIdAndUpdate({
-        _id: new Types.ObjectId(id)
-      },{
+    return await this._userEntity.findByIdAndUpdate(
+      {
+        _id: new Types.ObjectId(id),
+      },
+      {
         $set: {
-          ...dto
-        }
-      });
+          ...dto,
+        },
+      },
+    );
   }
 }

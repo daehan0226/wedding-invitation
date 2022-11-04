@@ -16,6 +16,13 @@ export class UserService {
     return await this.userRepository.create(dto);
   }
 
+  async createAdminUserOnInit(dto: CreateUserDto): Promise<UserEntity> {
+    if (await this.findByName(dto.name)) return;
+
+    this.logger.debug(`create init admin user`);
+    return await this.userRepository.createAdminUser(dto);
+  }
+
   async validatePassword(dto: LogInDto): Promise<UserEntity> {
     const user = await this.userRepository.findByName(dto.name);
     const isPasswordValid = await UtilsService.validateHash(
