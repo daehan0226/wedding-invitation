@@ -15,9 +15,9 @@ function StoryFour() {
         textAlign: 'center'
       }}
     >
-      <Typography sx={{ position: 'absolute' }} variant="body1" color={'text.white'}>
+      {/* <Typography sx={{ position: 'absolute' }} variant="body1" color={'text.white'}>
             {"bottom text"}       
-      </Typography>
+      </Typography> */}
       <img
         src={`${process.env.PUBLIC_URL}/images/ring.jpg`}
         width='150px'

@@ -39,8 +39,8 @@ function StoryTwo() {
       >      
         {images.map(image=>(
             <Box key={image.title} sx={{
-              width: { mobile : 300, laptop: 600 },
-              height: { mobile : 300, laptop: 600 },
+              width: { mobile : 300, tablet: 450, laptop: 600 },
+              // height: { mobile : 300, tablet: 450, laptop: 600 },
               boxSizing: 'border-box',
               borderColor: 'rgba(0,0,0,1)',
               borderWidth: '1.5px',
