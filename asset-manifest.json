@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/static/css/main.968ba0e5.css",
-    "main.js": "/static/js/main.730aa7bf.js",
+    "main.js": "/static/js/main.5265f189.js",
     "static/media/JosefinSans-Bold.ttf": "/static/media/JosefinSans-Bold.57aa1a839cbc3bfd7959.ttf",
     "index.html": "/index.html",
     "main.968ba0e5.css.map": "/static/css/main.968ba0e5.css.map",
-    "main.730aa7bf.js.map": "/static/js/main.730aa7bf.js.map"
+    "main.5265f189.js.map": "/static/js/main.5265f189.js.map"
   },
   "entrypoints": [
     "static/css/main.968ba0e5.css",
-    "static/js/main.730aa7bf.js"
+    "static/js/main.5265f189.js"
   ]
 }
