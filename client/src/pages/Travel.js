@@ -51,7 +51,7 @@ function Travel() {
       </Box>
       <Box m={3}>
         <GoogleMapReact
-          bootstrapURLKeys={{ key: GOOGLEMapApiKey }}  // GOOGLEMapApiKey
+          bootstrapURLKeys={{ key: "AIzaSyCpmHv9f2_7W6kKpYqfa5ZFG0cEzvo8mC4" }}  // GOOGLEMapApiKey
           defaultCenter={defaultProps.center}
           defaultZoom={defaultProps.zoom}
         >
