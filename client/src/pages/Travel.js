@@ -31,7 +31,7 @@ function Travel() {
         width: '100%',
         maxWidth: '800px'
       }}>
-        <Typography mb={{ mobile: 4, laptop: 6}} variant="h4" color={'text.white'} sx={{textAlign: 'center'}} >
+        {/* <Typography mb={{ mobile: 4, laptop: 6}} variant="h4" color={'text.white'} sx={{textAlign: 'center'}} >
           The Wedding Barn at Black Jack Vineyard<a href="https://www.blackjackvineyards.com/" target="_blank" ><InsertLinkIcon color="info" /></a>
         </Typography>
         <Box>
@@ -47,11 +47,17 @@ function Travel() {
           />
         <FacebookIcon />
 
-        <AirplanemodeActiveIcon />
-      </Box>
-      <Box m={3}>
+        <AirplanemodeActiveIcon /> */}
+      {/* </Box> */}
+      <Box m={3}
+        style={{ 
+          height: '50vh', 
+          width: '100%',
+          maxWidth: '800px'
+        }}
+      >
         <GoogleMapReact
-          bootstrapURLKeys={{ key: "AIzaSyCpmHv9f2_7W6kKpYqfa5ZFG0cEzvo8mC4" }}  // GOOGLEMapApiKey
+          bootstrapURLKeys={{ key: "" }}  // GOOGLEMapApiKey // AIzaSyCpmHv9f2_7W6kKpYqfa5ZFG0cEzvo8mC4
           defaultCenter={defaultProps.center}
           defaultZoom={defaultProps.zoom}
         >
