@@ -5,18 +5,27 @@ function StoryFour() {
   return (
     <Box
       width='100%'
-      height='auto'
-      position='relative'
+      height={200}
+      sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        position: 'relative',
+        textAlign: 'center'
+      }}
     >
-      <Typography sx={{ position: 'absolute', left: '0%', top: '50%', textAlign: 'center', width: '100%'}} variant="h4" color={'text.white'}>
-            {"BECAUSE THESE MOMENTS ARE TOO GOOD TO MISS"}       
+      <Typography sx={{ position: 'absolute' }} variant="body1" color={'text.white'}>
+            {"bottom text"}       
       </Typography>
       <img
-        src={`${process.env.PUBLIC_URL}/images/10.jpg`}
-        width='100%'
-        height='auto'
+        src={`${process.env.PUBLIC_URL}/images/ring.jpg`}
+        width='150px'
+        height='150px'
         alt=''
-        style={{opacity:'0.3'}}
+        style={{
+          borderRadius: '50%'
+        }}
       />    
     </Box>
   );

@@ -28,15 +28,14 @@ function Header() {
     <>
       <Box 
         sx={{
-          backgroundImage: `url(${process.env.PUBLIC_URL}/images/8.jpg)`,
+          // backgroundImage: `url(${process.env.PUBLIC_URL}/images/8.jpg)`,
           width: '100%',
-          height: { mobile: '400px', laptop: '500px'},
-          backgroundPosition: { mobile: '-100px -550px', laptop: '0px -400px'} ,
-          opacity: '0.9'
+          height: { mobile: '80px', laptop: '100px'},
+          // backgroundPosition: { mobile: '-100px -550px', laptop: '0px -400px'} ,
+          // opacity: '0.9'
       }}>
       <Box 
         sx={{
-          height: { mobile: '400px', laptop: '500px'},
           display: 'flex', 
           justifyContent: 'center', 
           alignItems: 'center',
