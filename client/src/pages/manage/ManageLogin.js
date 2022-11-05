@@ -29,6 +29,7 @@ function ManageLogin() {
           console.log(res.data.name)
           localStorage.setItem("token", JSON.stringify(res.data));
           alert(`Welcome ${res.data.name}!`)
+          window.location.reload();
         }
         // console.log(`res: ${JSON.stringify(res)}`)
       }).catch((err)=> {
