@@ -6,7 +6,7 @@ import { ConfigService } from './modules/shared/config.service';
 import { SharedModule } from './modules/shared/shared.module';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create(AppModule, { cors: true });
 
   console.log(`env ${process.env.ENV}`);
   if (process.env.ENV === 'local') {
