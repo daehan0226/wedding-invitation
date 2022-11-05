@@ -4,16 +4,6 @@ import Typography from '@mui/material/Typography';
 function StoryThree() {
   return (
     <Box mt={2} sx={{ backgroundColor: 'brown.200', position: 'relative'}}>
-      <img
-          src={`${process.env.PUBLIC_URL}/images/13.jpg`}
-          style={{
-            position: 'absolute',
-            width: '100%',
-            zIndex: 1,
-            opacity: 0.8,
-            top: '0px',
-          }}
-        />
       <Box
         padding={{ 
           mobile: 7, laptop: 14

@@ -4,42 +4,28 @@ import Typography from '@mui/material/Typography';
 
 const images = [
   {
-    url: `${process.env.PUBLIC_URL}/images/1.jpg`,
-    alt: 'Albi',
-    title: 'Albi',
-    date: '2020.01.01',
-    ratio: 1
+    url: `${process.env.PUBLIC_URL}/images/back_hug.jpg`,
+    alt: 'photo1',
+    title: 'title1',
+    text: 'photo1',
   },
   {
-    url: `${process.env.PUBLIC_URL}/images/6.jpg`,
-    alt: 'Fox',
-    title: 'Kate',
-    date: '2020.01.01',
-    ratio: 1.2
+    url: `${process.env.PUBLIC_URL}/images/carry_on_back.jpg`,
+    alt: 'photo2',
+    title: 'title2',
+    text: 'text3',
   },
   {
-    url: `${process.env.PUBLIC_URL}/images/7.jpg`,
-    alt: 'Sevi',
-    title: 'Sevi',
-    date: '2020.01.01',
-    ratio: 1
+    url: `${process.env.PUBLIC_URL}/images/nose_kiss.jpg`,
+    alt: 'photo3',
+    title: 'title3',
+    text: 'text3',
   }
 ]
 
 
 function StoryTwo() {
   return (
-    <>
-      <img
-          src={`${process.env.PUBLIC_URL}/images/12.jpg`}
-          style={{
-            position: 'absolute',
-            width: '100%',
-            zIndex: 1,
-            opacity: 0.5,
-            top: '400px',
-          }}
-        />
       <Box 
         m={{ mobile: 10, laptop: 15}} 
         sx={{ 
@@ -53,27 +39,59 @@ function StoryTwo() {
       >      
         {images.map(image=>(
             <Box key={image.title} sx={{
-              zIndex: 100,
+              width: { mobile : 300, laptop: 600 },
+              height: { mobile : 300, laptop: 600 },
+              boxSizing: 'border-box',
+              borderColor: 'rgba(0,0,0,1)',
+              borderWidth: '1.5px',
+              borderStyle: 'solid',
+              borderRadius: 'inherit',
               position: 'relative',
+              margin: '5px',
             }}>
               <img
                 src={image.url}
-                width={String(250*image.ratio)}
-                height={String(250*image.ratio)}
                 style={{
-                  borderRadius: '5px', 
-                  margin: '10px',     
-                  border: '3px solid #F8F6F1',
+                  width: '90%',
+                  height: '90%',
+                  borderColor: 'transparent',
+                  borderWidth: '5px',
+                  margin: '5%',     
                 }}
                 alt={image.alt} 
               />
-              <Typography sx={{ textAlign: 'center'}} >{image.title}</Typography>
-              <Typography sx={{ textAlign: 'center'}} >{image.date}</Typography>
+              <Typography sx={{ 
+                position: 'absolute',
+                textAlign: 'center',
+                top: '30%',
+                left: '50%',
+                transform: 'translate(-50%, -50%)',
+                color: 'text.white',
+                overflow: 'hidden',
+                WebkitBoxOrient: 'vertical',
+                width: '80%',
+                WebkitLineClamp: 3,
+                wordBreak: 'break-all'
+              }} 
+              >{image.title}</Typography>
+              <Typography sx={{ 
+                position: 'absolute',
+                top: '40%',
+                left: '50%',
+                textAlign: 'center',
+                transform: 'translate(-50%, -50%)',
+                color: 'text.white',
+                overflow: 'hidden',
+                WebkitBoxOrient: 'vertical',
+                width: '80%',
+                WebkitLineClamp: 3,
+                wordBreak: 'break-all'
+              }} 
+              >{image.text}</Typography>
             </Box>
           ))
         }
       </Box>
-    </>
   );
 }
 
