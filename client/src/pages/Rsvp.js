@@ -92,7 +92,7 @@ function Rsvp() {
           justifyContent: 'left',
           minHeight: attend === 1 ? '650' : '500',
           borderRadius: '10px',
-          padding: '10px',
+          padding: '30px',
           boxSizing: 'border-box'
         }} 
       >

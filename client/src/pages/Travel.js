@@ -1,5 +1,6 @@
 import React from 'react'
 import Box from '@mui/material/Box';
+import Link from '@mui/material/Link';
 import GoogleMapReact from 'google-map-react';
 import { GOOGLEMapApiKey } from '../config/config'
 import FacebookIcon from '@mui/icons-material/Facebook';
@@ -20,20 +21,33 @@ const AnyReactComponent = () => <LocationOnIcon />;
 
 function Travel() {
   return (
-    <Box m={2} sx={{
+    <Box mt={2} mb={2} sx={{
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
       flexDirection: 'column'
     }}>
-      <Box mb={2} style={{ 
-        height: '50vh', 
-        width: '100%',
-        maxWidth: '800px'
+      <Box mt={2} mb={2} sx={{ 
+        width: { mobile: '100%', tablet: '80%', laptop: '60%'},
+        textAlign: 'center'
       }}>
-        {/* <Typography mb={{ mobile: 4, laptop: 6}} variant="h4" color={'text.white'} sx={{textAlign: 'center'}} >
-          The Wedding Barn at Black Jack Vineyard<a href="https://www.blackjackvineyards.com/" target="_blank" ><InsertLinkIcon color="info" /></a>
-        </Typography>
+
+        <Link 
+          href="https://www.blackjackvineyards.com/" 
+          target="_blank"
+          mb={{ mobile: 4, laptop: 6}} 
+          variant="h4" 
+          color={'primary.#4'} 
+          sx={{
+            fontFamily: 'beautiful-simple !important',
+            margin: 4,
+            display: 'block',
+            textDecoration: "none",
+            boxShadow: "none"
+          }}
+        >
+          The Wedding Barn at Black Jack Vineyard
+        </Link>
         <Box>
         <img
           src={`${process.env.PUBLIC_URL}/images/venue.jpg`}
@@ -45,15 +59,14 @@ function Travel() {
               minWidth: 300
             }}
           />
-        <FacebookIcon />
-
-        <AirplanemodeActiveIcon /> */}
-      {/* </Box> */}
-      <Box m={3}
+        {/* <AirplanemodeActiveIcon /> */}
+      </Box>
+      <Box
+        mt={2}
         style={{ 
           height: '50vh', 
           width: '100%',
-          maxWidth: '800px'
+          // maxWidth: '800px'
         }}
       >
         <GoogleMapReact
