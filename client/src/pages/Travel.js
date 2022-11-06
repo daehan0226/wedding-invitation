@@ -9,6 +9,9 @@ import Typography from '@mui/material/Typography';
 import AirplanemodeActiveIcon from '@mui/icons-material/AirplanemodeActive';
 import InsertLinkIcon from '@mui/icons-material/InsertLink';
 
+
+const VENUE = 'The Wedding Barn at Black Jack Vineyard'
+
 const defaultProps = {
   center: {
     lat: 37.66377,
@@ -17,7 +20,7 @@ const defaultProps = {
   zoom: 13
 };
 
-const AnyReactComponent = () => <LocationOnIcon />;
+const AnyReactComponent = () => <div style={{width: '300px'}}><LocationOnIcon /><Typography>{VENUE}</Typography></div>;
 
 function Travel() {
   return (
@@ -46,9 +49,9 @@ function Travel() {
             boxShadow: "none"
           }}
         >
-          The Wedding Barn at Black Jack Vineyard
+          {VENUE}
         </Link>
-        <Box>
+        <Box m={2}>
         <img
           src={`${process.env.PUBLIC_URL}/images/venue.jpg`}
             width='100%'
@@ -61,6 +64,11 @@ function Travel() {
           />
         {/* <AirplanemodeActiveIcon /> */}
       </Box>
+      <Typography sx={{
+            fontFamily: 'beautiful-simple !important' }}
+      >
+        66 Rifle Range Road, Makanda, IL 62958
+      </Typography>
       <Box
         mt={2}
         style={{ 
