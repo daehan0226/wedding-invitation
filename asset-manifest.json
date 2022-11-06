@@ -1,14 +1,17 @@
 {
   "files": {
-    "main.css": "/static/css/main.968ba0e5.css",
-    "main.js": "/static/js/main.29e1d5f1.js",
-    "static/media/JosefinSans-Bold.ttf": "/static/media/JosefinSans-Bold.57aa1a839cbc3bfd7959.ttf",
+    "main.css": "/static/css/main.cac2df43.css",
+    "main.js": "/static/js/main.73ad1d88.js",
+    "static/media/The-Lovely.ttf": "/static/media/The-Lovely.2e666e8a6c3ce01ebd43.ttf",
+    "static/media/Beautiful-in-Simplicity-Italic.otf": "/static/media/Beautiful-in-Simplicity-Italic.b271ff5cacea47899bff.otf",
+    "static/media/LiliroseRegular.ttf": "/static/media/LiliroseRegular.0b2e7fead233e93ccf97.ttf",
+    "static/media/BeyondSweet-Regular.otf": "/static/media/BeyondSweet-Regular.2beb71ab15442378e988.otf",
     "index.html": "/index.html",
-    "main.968ba0e5.css.map": "/static/css/main.968ba0e5.css.map",
-    "main.29e1d5f1.js.map": "/static/js/main.29e1d5f1.js.map"
+    "main.cac2df43.css.map": "/static/css/main.cac2df43.css.map",
+    "main.73ad1d88.js.map": "/static/js/main.73ad1d88.js.map"
   },
   "entrypoints": [
-    "static/css/main.968ba0e5.css",
-    "static/js/main.29e1d5f1.js"
+    "static/css/main.cac2df43.css",
+    "static/js/main.73ad1d88.js"
   ]
 }
