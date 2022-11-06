@@ -1,36 +1,8 @@
 import { useState } from 'react';
 import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 
-const colorNames = [
-  'pink',
-  'cyan',
-  'grey',
-  'brown'
-]
-const colorNumbers = [
-  '100',
-  '200',
-  '300',
-  '400',
-  '500',
-  '600',
-  '700',
-  '800',
-  '900',
-  'A100',
-  'A200',
-  'A400',
-  'A700',
-]
-
-let colors = [];
-for (const name of colorNames) {
-  for (const number of colorNumbers) {
-    colors.push({ hex: `${name}.${number}`})
-  }
-}
+const colors = ['1', '2', '3', '4', '5']
 
 
 function Color() {
@@ -42,12 +14,12 @@ function Color() {
           {show ? 'hide' : 'show'} color samples
       </Button>
       {show && (<Box mb={1} sx={{ overflowX: 'scroll', display: 'flex' }} >
-        {colors.map(({hex}) => (
+        {colors.map((number) => (
           <Box 
-            key={hex}
+            key={number}
             variant="body1" 
             color={'white'} 
-            backgroundColor={hex} 
+            backgroundColor={`primary.#${number}`} 
             mb={2} 
             sx={{
               width: 100, 
@@ -58,20 +30,10 @@ function Color() {
               alignItems: 'center',
             }}
           >
-              {hex}       
+              #{number}       
           </Box>     
         ))}          
     </Box>)}
-      {show && (
-        <Typography variant="body1" color={'text.black'} mb={2}>
-          <a
-            target="_blank" 
-            rel="noreferrer"
-            href='https://mui.com/material-ui/customization/color/#main-content'>
-              sample colors (click)
-          </a>  
-        </Typography>
-      )}
   </>
   );
 }

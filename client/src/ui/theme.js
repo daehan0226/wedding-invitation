@@ -11,6 +11,14 @@ let theme = createTheme({
         text: {
             black: '#000',
             white: '#fff'
+        },
+        primary: {
+            'main': '#000',
+            '#1': '#DFB8AA',
+            '#2': '#45CDC2',
+            '#3': '#43727A',
+            '#4': '#FFE6DE',
+            '#5': '#F4B688',
         }
     },
     breakpoints: {

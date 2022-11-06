@@ -2,7 +2,8 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 
-const title = 'Alex Dycus && \n Blake D.Brown'
+const title = 'Alex & Blake Brown'
+const subTitle = 'How we met'
 const links = [
   {
     'link': '/',
@@ -25,33 +26,31 @@ const links = [
 
 function Header() {
   return (
-    <>
       <Box 
         sx={{
           width: '100%',
-          height: '100px',
+          height: { mobile: '130px', tablet: '150px'},
+          backgroundColor: 'primary.#3'
       }}>
       <Box 
         sx={{
           display: 'flex', 
+          flexDirection: 'column',
           justifyContent: 'center', 
           alignItems: 'center',
-          padding: { mobile: '20px', laptop: '40px'}
+          paddingTop: { mobile: '20px', tablet: '30px'},
         }}>
-          <Typography variant="h3" color={'text.white'} sx={{ fontFamily: 'jose'}} >
+          <Typography variant="h3" color={'primary.#1'} sx={{ fontFamily: 'lovely'}} >
               {title}       
-          </Typography>  
+          </Typography> 
       </Box>
-    
-    </Box>
       <Box 
-        mb={1} 
+        mt={{mobile: 1, laptop: 2, desktop: 3}}
         sx={{ 
           display: 'flex', 
           justifyContent: 'space-around', 
           alignItems: 'center'
         }} 
-        // backgroundColor={'text.black'}
         height={{mobile: 40, laptop: 50, desktop: 60}}
       >
         {links.map(({link, title}) => (
@@ -61,13 +60,13 @@ function Header() {
               opacity: .3,
             }
           }} >
-            <Typography variant="body1" color={'text.white'}>
+            <Typography variant="body1" color={'primary.#4'} sx={{ fontFamily: 'beautiful-simple'}} >
               {title}       
             </Typography>   
           </Button>
         ))}        
       </Box>
-      </>
+      </Box>
   );
 }
 

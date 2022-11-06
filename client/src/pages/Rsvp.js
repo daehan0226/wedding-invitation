@@ -13,7 +13,7 @@ import TextField from '@mui/material/TextField';
 import { useConfirm } from '../hooks/useConfrim'
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import { API, MAIL } from '../config/config';
+import { API } from '../config/config';
 
 function Rsvp() {
   const [name, setName] = useState('');
@@ -228,9 +228,7 @@ function Rsvp() {
         Submit
           
       </Button>
-        <Typography sx={{ textAlign: 'center' }} variant="caption" color={'grey.500'}>
-          {`If you have any questions please send an email to `}<a href={`mailto:${MAIL}`}>{`${MAIL}`}</a>
-        </Typography>
+        
       </Box>
     </Box>
   );

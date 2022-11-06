@@ -3,11 +3,10 @@ import Typography from '@mui/material/Typography';
 
 function StoryOne() {
   return (
-    <Box mt={2} mb={2} sx={{ backgroundColor: 'brown.300'}}>
+    <Box mb={2} sx={{}}>
       <Box 
-        m={1}
         padding={{ 
-          mobile: 1, laptop: 6
+          mobile: 0, laptop: 6
         }} 
         sx={{
           height: { mobile: 1000, laptop: 'auto' }
@@ -26,7 +25,7 @@ function StoryOne() {
             sx={{
               width: { mobile: 300, laptop: 400},
               position: { mobile: 'absolute', laptop: 'relative'},
-              top: { mobile: -20, laptop: 0},
+              top: { mobile: -30, laptop: 0},
             }}
           >
             <img
@@ -42,22 +41,21 @@ function StoryOne() {
           <Box
             sx={{
               zIndex: 100,
-              margin: 3,
+              margin: 1,
               position: { mobile: 'absolute', laptop: 'relative'},
-              bottom: { mobile: -100, tablet: -60, laptop: 0},
+              bottom: { mobile: -40, tablet: -60, laptop: 0},
             }}
           >
-            <Typography mb={{ mobile: 4, laptop: 6}} variant="h4" color={'text.white'}>
-                {"BECAUSE THESE MOMENTS ARE TOO GOOD TO MISS"}       
+            <Typography variant="h3" color={'text.white'} mb={2} sx={{ 
+                fontFamily: 'lilirose',
+                textAlign: { mobile : 'left', laptop: 'center'}
+                }} >
+                {"How we met"}       
             </Typography>
-
-            <Typography  mb={{ mobile: 2, laptop: 3}} variant="h6" color={'text.white'}>
-                {"Eu volutpat odio facilisis mauris sit amet massa vitae tortor. Idest venenatis a condimentum vitae sapien pellentesque habitant, acestes turpis egestas integer eget aliquet nibh praese."}       
+            <Typography  mb={{ mobile: 2, laptop: 3}} variant="h4" color={'text.white'} sx={{ 
+                fontFamily: 'lilirose'}}>
+                {"Sophia and Carter met in 2009 during senior year of high school, during an Intro to Photography class. Students were assigned a project that required them to shoot architectural buildings throughout San Francisco."}       
             </Typography>
-            
-            <Typography  mb={{ mobile: 2, laptop: 3}} variant="h6" color={'text.white'}>
-                {"Eu volutpat odio facilisis mauris sit amet massa vitae tortor. Idest venenatis a condimentum vitae sapien pellentesque habitant, acestes turpis egestas integer eget aliquet nibh praese."}       
-            </Typography> 
           </Box>
 
         </Box>
@@ -73,16 +71,17 @@ function StoryOne() {
         <Box
           sx={{
             zIndex: 10,
-            margin: 3,
+            margin: 1,
             position: { mobile: 'absolute', laptop: 'relative'},
             bottom: { mobile: -100, tablet: -60, laptop: 0},
           }}
         >
-          <Typography mb={{ mobile: 4, laptop: 6}} variant="h4" color={'text.white'}>
-              {"BECAUSE THESE MOMENTS ARE TOO GOOD TO MISS"}       
+          <Typography mb={{ mobile: 4, laptop: 6}} variant="h4" color={'text.white'} sx={{
+                textAlign: { mobile : 'right', laptop: 'center'} }} >
+              {"How we met"}       
           </Typography>
 
-          <Typography  mb={{ mobile: 2, laptop: 3}} variant="h6" color={'text.white'}>
+          <Typography  mb={{ mobile: 2, laptop: 3}} variant="h4" color={'text.white'}>
               {"Eu volutpat odio facilisis mauris sit amet massa vitae tortor. Idest venenatis a condimentum vitae sapien pellentesque habitant, acestes turpis egestas integer eget aliquet nibh praese."}       
           </Typography>
         </Box>

@@ -27,14 +27,15 @@ const images = [
 function StoryTwo() {
   return (
       <Box 
-        m={{ mobile: 10, laptop: 15}} 
+        mt={{ mobile: 10, laptop: 15}} 
         sx={{ 
           minHeight: 400,
+          padding: 10,
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
           flexDirection: { mobile : 'column', laptop: 'row'},
-          position: 'relative'
+          backgroundColor: 'primary.#3'
         }}
       >      
         {images.map(image=>(
