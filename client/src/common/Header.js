@@ -40,7 +40,7 @@ function Header() {
           alignItems: 'center',
           paddingTop: { mobile: '20px', tablet: '30px'},
         }}>
-          <Typography variant="h3" color={'primary.#1'} sx={{ fontFamily: 'lovely'}} >
+          <Typography variant="h3" color={'primary.#1'} sx={{ fontFamily: 'lovely !important'}} >
               {title}       
           </Typography> 
       </Box>
@@ -60,7 +60,7 @@ function Header() {
               opacity: .3,
             }
           }} >
-            <Typography variant="body1" color={'primary.#4'} sx={{ fontFamily: 'beautiful-simple'}} >
+            <Typography variant="body1" color={'primary.#4'} sx={{ fontFamily: 'beautiful-simple !important'}} >
               {title}       
             </Typography>   
           </Button>

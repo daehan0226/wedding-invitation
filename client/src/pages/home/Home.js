@@ -28,7 +28,7 @@ function Home() {
             justifyContent: 'center',
             alignItems: 'end'
       }}>
-        <Typography sx={{ textAlign: 'center' }} variant="caption" color={'text.white'} sx={{ fontFamily: 'lilirose'}} >
+        <Typography sx={{ textAlign: 'center' }} variant="caption" color={'text.white'} >
             {`If you have any questions please send an email to `}<a href={`mailto:${MAIL}`}>{`${MAIL}`}</a>
           </Typography>
       </Box>
