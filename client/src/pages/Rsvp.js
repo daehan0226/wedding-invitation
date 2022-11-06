@@ -19,18 +19,18 @@ function Rsvp() {
   const [name, setName] = useState('');
   const [message, setMessage] = useState('');
   const [nameError, setNameError] = useState('');
-  const [number, setNumber] = useState(0);
-  const [attend, setAttend] = useState(0);
-  const [meal, setMeal] = useState('');
-
-  const handleMealChange = (event) => {
-    setMeal(event.target.value);
-  };
+  const [bringingOne, setBringingOne] = useState(0);
+  const [attend, setAttend] = useState(1);
 
   
   const handleAttendChange = (event) => {
     setAttend(Number(event.target.value));
   };
+
+  const handleBringingOneChange = (event) => {
+    setBringingOne(Number(event.target.value));
+  };
+  
   
   function onBlurHandler(name) {
     if (name === '') {
@@ -39,13 +39,6 @@ function Rsvp() {
       setNameError('')
     }
   }
-
-  useEffect(()=>{
-    if (Number(number) < 0) {
-      setNumber(0)
-    }
-  },[number])
-
   
   useEffect((prev)=>{
     if (prev !== '' && name !== '') {
@@ -58,8 +51,6 @@ function Rsvp() {
       Name: ${name}
       Attend: ${attend? 'Yes': 'No'}
       Message: ${message}
-      ${attend === 1 ? (`Group of people: ${number}`) : ''}
-      ${attend === 1 ? (`Meal: ${meal}`) : ''}
     `,
     handleSubmit,
     () => {}
@@ -68,8 +59,7 @@ function Rsvp() {
   function handleSubmit() {
     const data = {
       name,
-      numberOfPeople: Number(number),
-      meal,
+      numberOfPeople: attend === 1 ? bringingOne : 0,
       attend: attend === 1,
       message
     }
@@ -131,8 +121,6 @@ function Rsvp() {
           />
         </Box>
           
-
-
         {/* Name */}
         <Typography sx={{ textAlign: 'left' }} mt={3} variant="body1" color={'text.black'}>
               Name
@@ -179,28 +167,21 @@ function Rsvp() {
             <Typography sx={{ textAlign: 'left' }} mt={3} variant="body1" color={'text.black'}>
               Are you bringing +1?  
             </Typography>
-            <Input
-              type='number' 
-              onChange={(e)=>setNumber(e.target.value)} 
-              inputProps={{ min: 0 }}
-              value={number} 
-            />
-            <FormControl fullWidth sx={{marginTop: 4}}>
-              <InputLabel id="demo-simple-select-label">Meal</InputLabel>
-              <Select
-                labelId="demo-simple-select-label"
-                id="demo-simple-select"
-                color=""
-                value={meal}
-                label="Meal"
-                onChange={handleMealChange}
-              >
-                <MenuItem value={"No"}>No</MenuItem>
-                <MenuItem value={"Option1"}>Option1</MenuItem>
-                <MenuItem value={"Option2"}>Option2</MenuItem>
-                <MenuItem value={"Option3"}>Option3</MenuItem>
-              </Select>
-            </FormControl>
+            <RadioGroup
+            aria-labelledby="demo-controlled-radio-buttons-group"
+            name="controlled-radio-buttons-group"
+            value={bringingOne}
+            onChange={handleBringingOneChange}
+            sx={{
+              display: 'flex',
+              justifyContent: { mobile : 'left', laptop: 'space-around' },
+              flexDirection: 'row',
+            }}
+          >
+            <FormControlLabel value={1} control={<Radio />} label="Yes" />
+            <FormControlLabel value={0} control={<Radio />} label="No, I am coming alone" />
+          </RadioGroup>
+            
           </>
         )}
       
