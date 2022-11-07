@@ -15,7 +15,8 @@ function StoryOne() {
           mobile: 0, laptop: 6
         }} 
         sx={{
-          height: { mobile: '750px', tablet: '700px', laptop: '600px'},
+          height: 700,
+          position: 'relative'
         }}  
       >
         <Box
@@ -46,7 +47,8 @@ function StoryOne() {
           <Box
             sx={{
               zIndex: 100,
-              margin: 1,
+              margin: "0px auto",
+              width: { mobile: '95%', laptop: '80%'}
             }}
           >
             <Typography variant="h1" color={'text.white'} mb={2} sx={{ 
@@ -75,7 +77,7 @@ function StoryOne() {
           sx={{
             width: { mobile: '50%', tablet: 300 },
             position: 'absolute',
-            bottom: { mobile: -40, laptop: 0},
+            bottom: { mobile: -150, tabelt: -100, laptop: 0},
             right: { mobile: 0, laptop: 20},
           }}
         >

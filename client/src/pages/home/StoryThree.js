@@ -15,7 +15,7 @@ function StoryThree() {
           mobile: 0, laptop: 6
         }} 
         sx={{
-          height: 700,
+          height: { mobile:800, laptop: 500},
           position: 'relative'
         }}  
       >
@@ -47,10 +47,11 @@ function StoryThree() {
           <Box
             sx={{
               zIndex: 100,
-              margin: 1,
+              margin: "0px auto",
+              width: { mobile: '95%', laptop: '70%'}
             }}
           >
-            <Typography variant="h1" color={'text.white'} mb={2} sx={{ 
+            <Typography variant="h1" color={'text.white'} mb={4} sx={{ 
                 fontFamily: 'lilirose !important',
                 textAlign: 'center',
                 fontSize: { mobile: '30px', tablet: '34px', laptop: '40px' },
@@ -76,7 +77,8 @@ function StoryThree() {
           sx={{
             width: { mobile: '50%', tablet: 300 },
             position: 'absolute',
-            bottom: { mobile: -40, laptop: 0},
+            bottom: { mobile: -10, tablet: 70, laptop: 'none'},
+            top: { mobile: 'none', laptop: 100},
             right: { mobile: 0, laptop: 20},
           }}
         >
