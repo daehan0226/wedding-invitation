@@ -1,33 +1,95 @@
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 
+
+const title = "The proposal"
+const contextOne =`Fast forward a few years (2021) and many many hiking treks, camping trips, river floats, beer and pizza dates, movie nights, and more adventures than they could count- Blake and Alex bought their first house together in Makanda IL, just 8 minutes from the lake where they had their first date. Multiple times Alex and Blake have celebrated their anniversary back on Cedar lake with sunshine, beer, and fun in the water. July 1st 2022 wasn’t any different, except they went out on Blake’s newly acquired fishing boat! Blake spent the first part of the day fishing and Alex was lounging in the sun reading, but she knew he had some sort of surprise in store for her…  so she gently asked if the surprise was on the boat. (It was!)`
+const contextTwo = `Blake told her to close her eyes while he got everything ready (pulled things out of bags etc.) then he took out his phone and read Alex the meaning of turquoise (one of her favorite stones!) wisdom, tranquility, and enduring love! Then he slipped two bracelets made with turquoise beads onto her wrists. They were beautiful and Alex loved them (honestly she was thinking well that was the perfect opportunity to propose and here we are, but I love them). Blake let her “oo” and “ahhh” over the bracelets, then just when things started to die down, he said oh and that’s not all! Then he got down on one knee and proposed. Obviously Alex said yes, many many times in fact!  He proposed using a ring he had bought locally but wanted Alex to have a say in the actual wedding ring (smart man!). He showed her his idea for which ring he wanted to get her and Alex immediately fell in love with it!`
+
+
 function StoryThree() {
   return (
-      <Box
+    <Box mb={2} sx={{}}>
+      <Box 
         padding={{ 
-          mobile: 7, laptop: 14
+          mobile: 0, laptop: 6
         }} 
         sx={{
-          // margin: 'auto 0px',
-          // display: 'flex',
-          // flexDirection: 'column',
-          // justifyContent: 'center',
-          // alignItems: 'center',
-          // zIndex: 100,
+          height: 700,
+          position: 'relative'
         }}  
       >
-        <Typography mb={{ mobile: 4, laptop: 6}} variant="h4" color={'text.white'}>
-            {"BECAUSE THESE MOMENTS ARE TOO GOOD TO MISS"}       
-        </Typography>
-        
-        <Typography  mb={{ mobile: 2, laptop: 3}} variant="h6" color={'text.white'}>
-            {"Eu volutpat odio facilisis mauris sit amet massa vitae tortor. Idest venenatis a condimentum vitae sapien pellentesque habitant, acestes turpis egestas integer eget aliquet nibh praese."}       
-        </Typography>  
+        <Box
+          sx={{
+            position: 'relative',
+            display: 'flex', 
+            justifyContents: 'center',
+            alignItems: 'center',
+            height: 'auto',
+          }}
+        >
+          <Box
+            sx={{
+              width: { mobile: '50%', tablet: 300 },
+              position: 'absolute',
+              top: { mobile: -30, laptop: 0},
+            }}
+          >
+            <img
+              src={`${process.env.PUBLIC_URL}/images/on_swing.jpg`}
+              style={{
+                width: '100%'
+              }}
+              alt=''
+            />   
+          </Box>
+          
+          <Box
+            sx={{
+              zIndex: 100,
+              margin: 1,
+            }}
+          >
+            <Typography variant="h1" color={'text.white'} mb={2} sx={{ 
+                fontFamily: 'lilirose !important',
+                textAlign: 'center',
+                fontSize: { mobile: '30px', tablet: '34px', laptop: '40px' },
+                marginTop: { mobile: '100px', tablet: '100px', laptop: '100px'}
+                }} >
+                {title}       
+            </Typography>
+            <Typography  mb={{ mobile: 2, laptop: 3}} variant="h4" color={'text.white'} sx={{
+              fontSize: { mobile: '14px', tablet: '17px', laptop: '20px' }
+            }} >
+                {contextOne}       
+            </Typography>
+            <Typography  mb={{ mobile: 2, laptop: 3}} variant="h4" color={'text.white'} sx={{
+              fontSize: { mobile: '14px', tablet: '17px', laptop: '20px' },
+              marginTop: { mobile: '40px', tablet: '30px', laptop: '20px'}
+            }} >
+                {contextTwo}       
+            </Typography>
+          </Box>
 
-        <Typography variant="body1" color={'text.white'}>
-            {"Elizabeth and Nicholas met in 2009 during senior year of high school, during an Intro to Photography class. Students were assigned a project that required them to shoot architectural buildings throughout San Francisco. One afternoon, they ran into each other on the street - they were photographing the same building, just from different vantage points! - and decided to shoot together. The afternoon turned to evening and ended with ice cream, where they talked until the shop closed. And the rest, as they say, is history."}       
-        </Typography>  
+        </Box>
+        <Box
+          sx={{
+            width: { mobile: '50%', tablet: 300 },
+            position: 'absolute',
+            bottom: { mobile: -40, laptop: 0},
+            right: { mobile: 0, laptop: 20},
+          }}
+        >
+          <img
+            src={`${process.env.PUBLIC_URL}/images/ring.jpg`}
+            alt=''
+            style={{
+              width: '100%'
+            }}
+          />
+        </Box>
       </Box>
+    </Box>
   );
 }
 

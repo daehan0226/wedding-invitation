@@ -73,52 +73,70 @@ function Rsvp() {
   }
 
   return (
-    <Box
-      sx={{
-        backgroundImage: `url(${process.env.PUBLIC_URL}/images/11.png)`,
-        width: '100%',
-        backgroundColor: 'text.white',
-        backgroundPosition: { mobile: '-100px -550px', laptop: '0px -400px'} ,
-        opacity: '0.9'
-    }}
-    >
       <Box
         sx={{ 
-          margin: '10px auto',
-          width: '80%',
-          maxWidth: '600px',
+          width: '100%',
+          position: 'relative',
           display: 'flex',
           flexDirection: 'column',
-          justifyContent: 'left',
-          minHeight: attend === 1 ? '650' : '500',
-          borderRadius: '10px',
-          padding: '30px',
-          boxSizing: 'border-box'
         }} 
       >
+        <Box
+          sx={{
+            width: { mobile: '100%', tablet: '600px'},
+            display: { mobile: 'block', tablet: 'none'},
+            position: { mobile: 'absolute', tablet: 'none'}
+          }}
+        >
+          <img
+              src={`${process.env.PUBLIC_URL}/images/ring1.jpg`}
+              width='100%'
+              height='450px'
+              alt=''
+              style={{
+                opacity: '0.6',
+                margin: '0 auto'
+              }}
+            />
+        </Box>
+
+        <Box
+        sx={{
+          display: 'flex',
+          flexDirection: 'column',
+          zIndex: 100,
+          maxWidth: '800px',
+          minWidth: '300px',
+          width: '90%',
+          margin: '0 auto'
+        }}>
+          
         {/* Title */}
         <Box 
           sx={{
             display: 'flex',
             justifyContent: 'center',
-            alignItems: 'center'
+            alignItems: 'center',
+            zIndex: 100,
+            maxWidth: '800px',
+            margin: { mobile: '0', tablet: '0 auto'}
           }}
         >
-          <img
+          {/* <img
             src={`${process.env.PUBLIC_URL}/images/flower2.png`}
             width='50px'
             height='50px'
             alt=''
-          />
-          <Typography sx={{ textAlign: 'center' }}  variant="h3" color={'brown.800'} >
+          /> */}
+          <Typography sx={{ textAlign: 'center' }} mt={1} variant="h5" color={'brown.800'} >
                 {"RSVP"}       
           </Typography>
-          <img
+          {/* <img
             src={`${process.env.PUBLIC_URL}/images/flower2.png`}
             width='50px'
             height='50px'
             alt=''
-          />
+          /> */}
         </Box>
           
         {/* Name */}
@@ -142,7 +160,8 @@ function Rsvp() {
 
         {/* Attending */}
         <FormControl fullWidth sx={{marginTop: 4}}>
-          <Typography sx={{ textAlign: 'left' }} variant="body1" color={'text.black'}>
+          <Typography sx={{ textAlign: 'left' }} variant="body1" color={'text.black'} sx={{ 
+                fontFamily: 'beautiful-simple !important'}}>
             Will you be attending?
           </Typography>
           <RadioGroup
@@ -190,7 +209,7 @@ function Rsvp() {
             id="outlined-multiline-static"
             label="Message"
             multiline
-            rows={4}
+            rows={2}
             inputProps={{ maxLength: 500 }}
             sx={{marginTop: 3}}
             value={message}
@@ -211,7 +230,7 @@ function Rsvp() {
       </Button>
         
       </Box>
-    </Box>
+      </Box>
   );
 }
 

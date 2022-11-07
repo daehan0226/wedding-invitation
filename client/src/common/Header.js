@@ -40,7 +40,10 @@ function Header() {
           alignItems: 'center',
           paddingTop: { mobile: '20px', tablet: '30px'},
         }}>
-          <Typography variant="h4" color={'primary.#1'} sx={{ fontFamily: 'lovely !important'}} >
+          <Typography variant="h2" color={'primary.#1'} sx={{ 
+            fontFamily: 'lovely !important',
+            fontSize: { mobile: '24px', tablet: '30px', laptop: '40px' }  
+          }} >
               {title}       
           </Typography> 
       </Box>

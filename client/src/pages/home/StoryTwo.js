@@ -4,19 +4,19 @@ import Typography from '@mui/material/Typography';
 
 const images = [
   {
-    url: `${process.env.PUBLIC_URL}/images/back_hug.jpg`,
+    url: `${process.env.PUBLIC_URL}/images/smile.jpg`,
     alt: 'photo1',
     title: 'title1',
     text: 'photo1',
   },
   {
-    url: `${process.env.PUBLIC_URL}/images/carry_on_back.jpg`,
+    url: `${process.env.PUBLIC_URL}/images/nose_kiss.jpg`,
     alt: 'photo2',
     title: 'title2',
     text: 'text3',
   },
   {
-    url: `${process.env.PUBLIC_URL}/images/nose_kiss.jpg`,
+    url: `${process.env.PUBLIC_URL}/images/dance.jpg`,
     alt: 'photo3',
     title: 'title3',
     text: 'text3',
@@ -41,7 +41,7 @@ function StoryTwo() {
         {images.map(image=>(
             <Box key={image.title} sx={{
               width: { mobile : 300, tablet: 450, laptop: 600 },
-              // height: { mobile : 300, tablet: 450, laptop: 600 },
+              height: { mobile : 300, tablet: 450, laptop: 600 },
               boxSizing: 'border-box',
               borderColor: 'rgba(0,0,0,1)',
               borderWidth: '1.5px',
