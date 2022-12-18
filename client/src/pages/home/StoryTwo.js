@@ -6,20 +6,20 @@ const images = [
   {
     url: `${process.env.PUBLIC_URL}/images/smile.jpg`,
     alt: 'photo1',
-    title: 'title1',
-    text: 'photo1',
+    title: '',
+    text: '',
   },
   {
     url: `${process.env.PUBLIC_URL}/images/nose_kiss.jpg`,
     alt: 'photo2',
-    title: 'title2',
-    text: 'text3',
+    title: '',
+    text: '',
   },
   {
     url: `${process.env.PUBLIC_URL}/images/dance.jpg`,
     alt: 'photo3',
-    title: 'title3',
-    text: 'text3',
+    title: '',
+    text: '',
   }
 ]
 
@@ -53,11 +53,10 @@ function StoryTwo() {
               <img
                 src={image.url}
                 style={{
-                  width: '90%',
-                  height: '90%',
+                  width: '100%',
+                  height: '100%',
                   borderColor: 'transparent',
-                  borderWidth: '5px',
-                  margin: '5%',     
+                  borderWidth: '5px', 
                 }}
                 alt={image.alt} 
               />

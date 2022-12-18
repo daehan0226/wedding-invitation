@@ -15,7 +15,7 @@ function StoryOne() {
           mobile: 0, laptop: 6
         }} 
         sx={{
-          height: 700,
+          height: {mobile: 900, laptop: 800},
           position: 'relative'
         }}  
       >
@@ -48,7 +48,7 @@ function StoryOne() {
             sx={{
               zIndex: 100,
               margin: "0px auto",
-              width: { mobile: '95%', laptop: '80%'}
+              width: { mobile: '90%', laptop: '60%'}
             }}
           >
             <Typography variant="h1" color={'text.white'} mb={2} sx={{ 
@@ -59,7 +59,7 @@ function StoryOne() {
                 }} >
                 {title}       
             </Typography>
-            <Typography  mb={{ mobile: 2, laptop: 3}} variant="h4" color={'text.white'} sx={{
+            <Typography  mt={{ mobile: 12, laptop: 20 }} mb={{ mobile: 2, laptop: 3}} variant="h4" color={'text.white'} sx={{
               fontSize: { mobile: '14px', tablet: '17px', laptop: '20px' }
             }} >
                 {contextOne}       
@@ -77,7 +77,7 @@ function StoryOne() {
           sx={{
             width: { mobile: '50%', tablet: 300 },
             position: 'absolute',
-            bottom: { mobile: -150, tabelt: -100, laptop: 0},
+            bottom: { mobile: -130, tabelt: -80, laptop: 0},
             right: { mobile: 0, laptop: 20},
           }}
         >

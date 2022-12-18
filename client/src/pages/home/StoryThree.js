@@ -15,7 +15,7 @@ function StoryThree() {
           mobile: 0, laptop: 6
         }} 
         sx={{
-          height: { mobile:800, laptop: 500},
+          height: { mobile:1000, laptop: 800},
           position: 'relative'
         }}  
       >
@@ -59,8 +59,8 @@ function StoryThree() {
                 }} >
                 {title}       
             </Typography>
-            <Typography  mb={{ mobile: 2, laptop: 3}} variant="h4" color={'text.white'} sx={{
-              fontSize: { mobile: '14px', tablet: '17px', laptop: '20px' }
+            <Typography mt={{ mobile: 18, tablet: 27, laptop: 33}} mb={{ mobile: 2, laptop: 3}} variant="h4" color={'text.white'} sx={{
+              fontSize: { mobile: '14px', tablet: '17px', laptop: '20px' },
             }} >
                 {contextOne}       
             </Typography>
@@ -77,7 +77,7 @@ function StoryThree() {
           sx={{
             width: { mobile: '50%', tablet: 300 },
             position: 'absolute',
-            bottom: { mobile: -10, tablet: 70, laptop: 'none'},
+            bottom: { mobile: -40, tablet: -50, laptop: 'none'},
             top: { mobile: 'none', laptop: 100},
             right: { mobile: 0, laptop: 20},
           }}
