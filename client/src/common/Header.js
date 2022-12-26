@@ -3,7 +3,7 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 
 const title = 'Alex & Blake Brown'
-const subTitle = 'How we met'
+const date = 'October 14, 2023'
 const links = [
   {
     'link': '/',
@@ -29,7 +29,7 @@ function Header() {
       <Box 
         sx={{
           width: '100%',
-          height: { mobile: '130px', tablet: '150px'},
+          height: { mobile: '150px', tablet: '170px'},
           backgroundColor: 'primary.#3'
       }}>
       <Box 
@@ -42,9 +42,16 @@ function Header() {
         }}>
           <Typography variant="h2" color={'primary.#1'} sx={{ 
             fontFamily: 'lovely !important',
-            fontSize: { mobile: '24px', tablet: '30px', laptop: '40px' }  
+            fontSize: { mobile: '28px', tablet: '36px', laptop: '40px' }  
           }} >
               {title}       
+          </Typography> 
+          <Typography variant="h5" color={'primary.#1'} sx={{ 
+            fontFamily: 'beautiful-simple !important',
+            marginTop: 2,
+            fontSize: { mobile: '20px', tablet: '24px', laptop: '28px' }  
+          }} >
+              {date}       
           </Typography> 
       </Box>
       <Box 

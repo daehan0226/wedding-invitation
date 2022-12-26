@@ -1,5 +1,6 @@
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
+import { diffDay } from '../../helper/dday';
 
 
 const images = [
@@ -27,70 +28,46 @@ const images = [
 function StoryTwo() {
   return (
       <Box 
-        mt={{ mobile: 10, laptop: 15}} 
         sx={{ 
-          minHeight: 400,
-          padding: 10,
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          flexDirection: { mobile : 'column', laptop: 'row'},
-          backgroundColor: 'primary.#3'
+          width: '100%',
+          height: 'auto',
+          display: 'block',
+          position: 'relative',
+          // backgroundImage: `url(${process.env.PUBLIC_URL}/images/nose_kiss.jpg})`,
+          // backgroundSize: '100% auto'
         }}
-      >      
-        {images.map(image=>(
-            <Box key={image.title} sx={{
-              width: { mobile : 300, tablet: 450, laptop: 600 },
-              height: { mobile : 300, tablet: 450, laptop: 600 },
-              boxSizing: 'border-box',
-              borderColor: 'rgba(0,0,0,1)',
-              borderWidth: '1.5px',
-              borderStyle: 'solid',
-              borderRadius: 'inherit',
-              position: 'relative',
-              margin: '5px',
-            }}>
-              <img
-                src={image.url}
-                style={{
-                  width: '100%',
-                  height: '100%',
-                  borderColor: 'transparent',
-                  borderWidth: '5px', 
-                }}
-                alt={image.alt} 
-              />
-              <Typography sx={{ 
+      >
+          <img
+              src={`${process.env.PUBLIC_URL}/images/nose_kiss.jpg`}
+              style={{
+                width: '100%',
+                height: 'auto',
+                borderColor: 'transparent',
+                borderWidth: '5px',
+                opacity: '0.7'
+              }}
+              alt={'photo2'} 
+            />
+              <Typography variant="h2" color={'text.white'} sx={{ 
                 position: 'absolute',
-                textAlign: 'center',
-                top: '30%',
-                left: '50%',
-                transform: 'translate(-50%, -50%)',
-                color: 'text.white',
-                overflow: 'hidden',
-                WebkitBoxOrient: 'vertical',
-                width: '80%',
-                WebkitLineClamp: 3,
-                wordBreak: 'break-all'
-              }} 
-              >{image.title}</Typography>
-              <Typography sx={{ 
-                position: 'absolute',
+                width: '100%',
                 top: '40%',
-                left: '50%',
                 textAlign: 'center',
-                transform: 'translate(-50%, -50%)',
-                color: 'text.white',
-                overflow: 'hidden',
-                WebkitBoxOrient: 'vertical',
-                width: '80%',
-                WebkitLineClamp: 3,
-                wordBreak: 'break-all'
-              }} 
-              >{image.text}</Typography>
-            </Box>
-          ))
-        }
+                left: '0',
+                fontSize: { mobile: '30px', tablet: '36px', laptop: '40px' }  
+              }} >
+                October 14, 2023
+              </Typography>
+              <Typography variant="h2" color={'text.white'} sx={{ 
+                position: 'absolute',
+                width: '100%',
+                top: '55%',
+                textAlign: 'center',
+                left: '0',
+                fontSize: { mobile: '30px', tablet: '36px', laptop: '40px' }  
+              }} >
+                {diffDay()} days
+              </Typography>
       </Box>
   );
 }

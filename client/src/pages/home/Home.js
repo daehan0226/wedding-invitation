@@ -21,12 +21,13 @@ function Home() {
       {/* <StoryFour></StoryFour> */}
       <Box
       sx={{
+            backgroundColor: 'primary.#3',
             width: '100%',
             paddingBottom: '10px',
             height: '80px',
             display: 'flex',
             justifyContent: 'center',
-            alignItems: 'end'
+            alignItems: 'center'
       }}>
         <Typography sx={{ textAlign: 'center' }} variant="caption" color={'text.white'} >
             {`If you have any questions please send an email to `}<a href={`mailto:${MAIL}`}>{`${MAIL}`}</a>

@@ -15,7 +15,7 @@ function StoryOne() {
           mobile: 0, laptop: 6
         }} 
         sx={{
-          height: {mobile: 900, laptop: 800},
+          height: {mobile: 1100, tablet: 950, laptop: 800},
           position: 'relative'
         }}  
       >
@@ -32,7 +32,7 @@ function StoryOne() {
             sx={{
               width: { mobile: '50%', tablet: 300 },
               position: 'absolute',
-              top: { mobile: -30, laptop: 0},
+              top: { mobile: 0},
             }}
           >
             <img
@@ -77,7 +77,7 @@ function StoryOne() {
           sx={{
             width: { mobile: '50%', tablet: 300 },
             position: 'absolute',
-            bottom: { mobile: -130, tabelt: -80, laptop: 0},
+            bottom: { mobile: 0 },
             right: { mobile: 0, laptop: 20},
           }}
         >

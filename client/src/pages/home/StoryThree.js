@@ -1,5 +1,6 @@
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
+import { diffDay } from '../../helper/dday';
 
 
 const title = "The proposal"
@@ -32,7 +33,7 @@ function StoryThree() {
             sx={{
               width: { mobile: '50%', tablet: 300 },
               position: 'absolute',
-              top: { mobile: -30, laptop: 0},
+              top: { mobile: 10},
             }}
           >
             <img
@@ -77,7 +78,7 @@ function StoryThree() {
           sx={{
             width: { mobile: '50%', tablet: 300 },
             position: 'absolute',
-            bottom: { mobile: -40, tablet: -50, laptop: 'none'},
+            bottom: { mobile: 0 },
             top: { mobile: 'none', laptop: 100},
             right: { mobile: 0, laptop: 20},
           }}
@@ -89,6 +90,7 @@ function StoryThree() {
               width: '100%'
             }}
           />
+          
         </Box>
       </Box>
     </Box>
