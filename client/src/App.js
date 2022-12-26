@@ -9,6 +9,7 @@ import Header from './common/Header';
 import theme from './ui/theme';
 import Rsvp from "./pages/Rsvp";
 import Manage from "./pages/manage/Manage";
+import Footer from "./common/Footer";
 
 function App() {
   return (
@@ -16,11 +17,14 @@ function App() {
       <Box sx={{
         width: '100%',
         height: '100%',
+        display: 'flex',
+        flexDirection: 'column'
       }}>
         <Header></Header>
         <Box
           sx={{
             width: '100%',
+            display: 'block',
             height: 'auto',
             boxSizing: 'border-box',
             paddingBottom: 4,
@@ -33,6 +37,7 @@ function App() {
             <Route path="/manage" element={<Manage />} />
           </Routes>   
         </Box>
+        <Footer />
       </Box>       
     </ThemeProvider>
   );
