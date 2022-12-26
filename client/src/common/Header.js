@@ -29,8 +29,10 @@ function Header() {
       <Box 
         sx={{
           width: '100%',
+          zIndex: 1000,
           height: { mobile: '150px', tablet: '170px'},
-          backgroundColor: 'primary.#3'
+          backgroundColor: 'primary.#3',
+          position: 'relative',
       }}>
       <Box 
         sx={{
@@ -42,14 +44,14 @@ function Header() {
         }}>
           <Typography variant="h2" color={'primary.#1'} sx={{ 
             fontFamily: 'lovely !important',
-            fontSize: { mobile: '28px', tablet: '36px', laptop: '40px' }  
+            fontSize: '28px'
           }} >
               {title}       
           </Typography> 
           <Typography variant="h5" color={'primary.#1'} sx={{ 
             fontFamily: 'beautiful-simple !important',
             marginTop: 2,
-            fontSize: { mobile: '20px', tablet: '24px', laptop: '28px' }  
+            fontSize: '18px'
           }} >
               {date}       
           </Typography> 
@@ -70,7 +72,8 @@ function Header() {
               opacity: .3,
             }
           }} >
-            <Typography variant="body1" color={'primary.#4'} sx={{ fontFamily: 'beautiful-simple !important'}} >
+            <Typography variant="body1" color={'primary.#4'} sx={{ fontFamily: 'beautiful-simple !important', 
+              fontSize: '16px'}} >
               {title}       
             </Typography>   
           </Button>

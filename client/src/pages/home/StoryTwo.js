@@ -66,7 +66,7 @@ function StoryTwo() {
                 left: '0',
                 fontSize: { mobile: '30px', tablet: '36px', laptop: '40px' }  
               }} >
-                {diffDay()} days
+                {diffDay()}
               </Typography>
       </Box>
   );
