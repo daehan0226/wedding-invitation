@@ -3,11 +3,8 @@ import Box from '@mui/material/Box';
 import Link from '@mui/material/Link';
 import GoogleMapReact from 'google-map-react';
 import { GOOGLEMapApiKey } from '../config/config'
-import FacebookIcon from '@mui/icons-material/Facebook';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import Typography from '@mui/material/Typography';
-import AirplanemodeActiveIcon from '@mui/icons-material/AirplanemodeActive';
-import InsertLinkIcon from '@mui/icons-material/InsertLink';
 
 
 const VENUE = 'The Wedding Barn at Black Jack Vineyard'
