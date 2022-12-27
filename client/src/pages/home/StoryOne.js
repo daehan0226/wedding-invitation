@@ -46,7 +46,7 @@ function StoryOne() {
           
           <Box
             sx={{
-              zIndex: 100,
+              zIndex: 1000,
               margin: "0px auto",
               width: { mobile: '90%', laptop: '60%'}
             }}
@@ -75,9 +75,10 @@ function StoryOne() {
         </Box>
         <Box
           sx={{
+            zIndex: 100,
             width: { mobile: '50%', tablet: 300 },
             position: 'absolute',
-            bottom: { mobile: 0 },
+            bottom: { mobile: -40, tablet: 0 },
             right: { mobile: 0, laptop: 20},
           }}
         >

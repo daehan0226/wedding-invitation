@@ -33,7 +33,7 @@ function StoryThree() {
             sx={{
               width: { mobile: '50%', tablet: 300 },
               position: 'absolute',
-              top: { mobile: 10},
+              top: { mobile: -20, tablet: 0},
             }}
           >
             <img
@@ -78,7 +78,7 @@ function StoryThree() {
           sx={{
             width: { mobile: '50%', tablet: 300 },
             position: 'absolute',
-            bottom: { mobile: 0 },
+            bottom: { mobile: -60, tablet: 0 },
             top: { mobile: 'none', laptop: 100},
             right: { mobile: 0, laptop: 20},
           }}
