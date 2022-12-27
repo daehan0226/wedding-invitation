@@ -13,7 +13,8 @@ function Footer() {
           height: '80px',
           display: 'flex',
           justifyContent: 'center',
-          alignItems: 'center'
+          alignItems: 'center',
+          marginTop: 'auto',
     }}>
       <Typography sx={{ textAlign: 'center', margin: '20px' }} variant="caption" color={'text.white'} >
           {`If you have any questions please send an email to `}<a href={`mailto:${MAIL}`}>{`${MAIL}`}</a>

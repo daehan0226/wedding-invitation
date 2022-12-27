@@ -14,7 +14,7 @@ function StoryThree() {
           mobile: 0, laptop: 6
         }} 
         sx={{
-          height: { mobile: 900, laptop: 800},
+          height: { mobile: 1000, laptop: 900},
           position: 'relative'
         }}  
       >
@@ -76,8 +76,8 @@ function StoryThree() {
           sx={{
             width: { mobile: '50%', tablet: 300 },
             position: 'absolute',
-            bottom: { mobile: -70, laptop: 0 },
-            top: { mobile: 'none', laptop: 100},
+            bottom: { mobile: -30, laptop: 0 },
+            top: { laptop: 100},
             right: { mobile: 0, laptop: 20},
           }}
         >

@@ -26,8 +26,6 @@ function App() {
             width: '100%',
             display: 'block',
             height: 'auto',
-            boxSizing: 'border-box',
-            paddingBottom: 4,
           }}
         >
           <Routes>

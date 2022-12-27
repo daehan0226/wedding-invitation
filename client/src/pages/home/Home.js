@@ -10,7 +10,7 @@ function Home() {
         sx={{
           display: 'block',
           width: '100%',
-          height: '100%',
+          height: 'auto',
         }}
         >
         <StoryOne></StoryOne>
