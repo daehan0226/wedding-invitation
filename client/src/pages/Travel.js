@@ -20,7 +20,7 @@ const defaultProps = {
   zoom: 13
 };
 
-const AnyReactComponent = () => <div style={{width: '300px'}}><LocationOnIcon /><Typography>{VENUE}</Typography></div>;
+const AnyReactComponent = () => <div style={{width: '300px'}}><LocationOnIcon /><Typography>{'Here'}</Typography></div>;
 
 function Travel() {
   return (

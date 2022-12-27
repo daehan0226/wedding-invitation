@@ -37,7 +37,6 @@ function App() {
             <Route path="/manage" element={<Manage />} />
           </Routes>   
         </Box>
-        <Footer />
       </Box>       
     </ThemeProvider>
   );

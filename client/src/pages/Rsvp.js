@@ -1,10 +1,7 @@
 import Box from '@mui/material/Box';
 import Input from '@mui/material/Input';
 import Typography from '@mui/material/Typography';
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
 import Button from '@mui/material/Button';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Radio from '@mui/material/Radio';
@@ -12,8 +9,7 @@ import RadioGroup from '@mui/material/RadioGroup';
 import TextField from '@mui/material/TextField';
 import { useConfirm } from '../hooks/useConfrim'
 import { useEffect, useState } from 'react';
-import axios from 'axios';
-import { API } from '../config/config';
+import { createRsvp } from '../helper/api';
 
 function Rsvp() {
   const [name, setName] = useState('');
@@ -56,20 +52,15 @@ function Rsvp() {
     () => {}
   );
 
-  function handleSubmit() {
-    const data = {
+  async function handleSubmit() {
+    const newDoc = {
       name,
       numberOfPeople: attend === 1 ? bringingOne : 0,
       attend: attend === 1,
       message
     }
-    console.dir(data)
 
-    axios({
-      method: 'post',
-      url: `http://${API}/rsvp`,
-      data
-    })
+    await createRsvp({ newDoc })
   }
 
   return (

@@ -1,12 +1,9 @@
 import Box from '@mui/material/Box';
 import Input from '@mui/material/Input';
 import Button from '@mui/material/Button';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import axios from 'axios';
 import { API } from '../../config/config';
-
-
-
 
 
 function ManageLogin() {
