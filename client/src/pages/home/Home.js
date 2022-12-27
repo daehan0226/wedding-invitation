@@ -2,7 +2,6 @@ import Box from '@mui/material/Box';
 import StoryOne from './StoryOne';
 import StoryTwo from './StoryTwo';
 import StoryThree from './StoryThree';
-import Footer from '../../common/Footer';
 
 function Home() {
   return (
@@ -17,9 +16,7 @@ function Home() {
         <StoryOne></StoryOne>
         <StoryTwo></StoryTwo>
         <StoryThree></StoryThree>
-        
       </Box>
-      <Footer />
     </>
   );
 }
