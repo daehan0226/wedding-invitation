@@ -1,33 +1,51 @@
 import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
+import * as React from 'react';
+import { DataGrid } from '@mui/x-data-grid';
 
-
+const columns = [
+  { field: 'name', headerName: 'Name', minWidth: 300 },
+  { field: 'attend', headerName: 'Attend', width: 100 },
+  { field: 'numberOfPeople', headerName: 'Number', width: 100, type: 'number' },
+  {
+    field: 'message',
+    headerName: 'Message',
+    minWidth: 600,
+    type: 'text'
+  },
+  { field: 'createdAt', headerName: 'Submit Date', width: 200 },
+];
 
 function ManageRsvp({rsvpList}) {
+  const [rsvp, setRsvp] = React.useState([]);
+
+  React.useEffect(()=>{
+    setRsvp([])
+    if (rsvpList.length > 0) {
+      const formattedRsvp = rsvpList.map(rsvp=> { return {
+        ...rsvp,
+        attend: rsvp.attend ? 'Yes' : 'No',
+        NumberOfPeopel: rsvp.numberOfPeople + 1,
+        createdAt: rsvp.createdAt ? rsvp.createdAt.toString() : ''
+      }})
+      setRsvp([
+        ...formattedRsvp
+      ])
+    }
+  }, [rsvpList])
   return (
     <Box
-      width='100%'
+      width='90%'
+      margin='30px auto'
       height='auto'
       position='relative'
     >
-      {rsvpList.map(rsvp=>(
-        <Box key={rsvp.id}>
-          <Typography sx={{  }} variant="h4" color={'text.black'}>
-            Name: {rsvp.name}          
-          </Typography>
-          <Typography sx={{  }} variant="h4" color={'text.black'}>
-            meal: {rsvp.meal}          
-          </Typography>
-          <Typography sx={{  }} variant="h4" color={'text.black'}>
-            attend: {rsvp.attend ? 'Yes': 'No'}          
-          </Typography>
-          <Typography sx={{  }} variant="h4" color={'text.black'}>
-            People including the person: {rsvp.numberOfPeople}          
-          </Typography>
-        </Box>
-      ))}
+      <DataGrid
+        rows={rsvp}
+        columns={columns}
+        pageSize={20}
+        rowsPerPageOptions={[20]}
+      />
     </Box>
   );
 }
-
 export default ManageRsvp;

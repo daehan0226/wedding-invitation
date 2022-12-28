@@ -19,6 +19,7 @@ function Rsvp() {
   const [nameError, setNameError] = useState('');
   const [bringingOne, setBringingOne] = useState(0);
   const [attend, setAttend] = useState(1);
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   
@@ -60,15 +61,17 @@ function Rsvp() {
       name,
       numberOfPeople: attend === 1 ? bringingOne : 0,
       attend: attend === 1,
-      message
+      message,
+      createdAt: (new Date()).toISOString()
     }
-
+    setLoading(true)
     const result = await createRsvp({ newDoc })
     if (result) {
       navigate('/travel')
     } else {
       alert('Oops, something went wrong. Try later again.')
     }
+    setLoading(false)
   }
 
   return (
@@ -224,8 +227,7 @@ function Rsvp() {
         onClick={confirmSubmit}
         disabled={name === '' || nameError !== ''}
       >
-        Submit
-          
+        {loading ? "Submitting...." : "Submit"}
       </Button>
         
       </Box>
