@@ -1,10 +1,10 @@
 {
-  "short_name": "Wedding",
-  "name": "Wedding",
+  "short_name": "Alex & Blake Brown",
+  "name": "Alex & Blake Brown",
   "icons": [
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#DFB8AA",
+  "background_color": "#43727A"
 }
