@@ -8,7 +8,12 @@ async function updateRsvp({ id_, newDoc }) {
 }
 
 async function createRsvp({ newDoc }) {
-    await addDoc(collection(db, collectionName), { ...newDoc, hasDeleted: false });
+    try {
+        await addDoc(collection(db, collectionName), { ...newDoc, hasDeleted: false });
+        return true
+    } catch {
+        return false
+    }
 }
 
 async function getRsvp() {

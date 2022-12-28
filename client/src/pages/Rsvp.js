@@ -10,6 +10,8 @@ import TextField from '@mui/material/TextField';
 import { useConfirm } from '../hooks/useConfrim'
 import { useEffect, useState } from 'react';
 import { createRsvp } from '../helper/api';
+import { useNavigate } from 'react-router-dom';
+
 
 function Rsvp() {
   const [name, setName] = useState('');
@@ -17,6 +19,7 @@ function Rsvp() {
   const [nameError, setNameError] = useState('');
   const [bringingOne, setBringingOne] = useState(0);
   const [attend, setAttend] = useState(1);
+  const navigate = useNavigate();
 
   
   const handleAttendChange = (event) => {
@@ -60,7 +63,12 @@ function Rsvp() {
       message
     }
 
-    await createRsvp({ newDoc })
+    const result = await createRsvp({ newDoc })
+    if (result) {
+      navigate('/travel')
+    } else {
+      alert('Oops, something went wrong. Try later again.')
+    }
   }
 
   return (
