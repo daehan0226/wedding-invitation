@@ -31,7 +31,7 @@ function TimeLine({index, info}) {
           position={"relative"}
           sx={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center'}}
         >
-          <Box m={4}>{info.text}</Box>
+          <Box m={{ mobile: 3, tablet: 6, laptop: 8, desktop: 10}}>{info.text}</Box>
           <Box
             sx={{
               '&::before': {
@@ -58,7 +58,7 @@ function TimeLine({index, info}) {
           position={"relative"}
           sx={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center'}}
         >
-        <Box m={4}>{info.text}</Box>
+        <Box m={{ mobile: 3, tablet: 6, laptop: 8, desktop: 10}}>{info.text}</Box>
           <Box
             sx={{
               '&::before': {

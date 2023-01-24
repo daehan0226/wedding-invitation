@@ -30,7 +30,7 @@ function Header() {
         sx={{
           width: '100%',
           zIndex: 1000,
-          height: { mobile: '150px', tablet: '170px'},
+          height: { mobile: '150px', tablet: '170px', laptop: '200px'},
           backgroundColor: 'primary.#3',
           position: 'relative',
       }}>

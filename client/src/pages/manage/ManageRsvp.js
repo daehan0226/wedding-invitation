@@ -27,6 +27,7 @@ function ManageRsvp({rsvpList}) {
         NumberOfPeopel: rsvp.numberOfPeople + 1,
         createdAt: rsvp.createdAt ? rsvp.createdAt.toString() : ''
       }})
+      console.log(formattedRsvp)
       setRsvp([
         ...formattedRsvp
       ])
