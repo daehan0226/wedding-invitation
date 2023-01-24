@@ -8,6 +8,8 @@ import Typography from '@mui/material/Typography';
 
 
 const VENUE = 'The Wedding Barn at Black Jack Vineyard'
+const AIRBNB_LINK = "https://www.airbnb.com/s/Makanda/homes?tab_id=home_tab&flexible_trip_lengths%5B%5D=one_week&price_filter_input_type=0&price_filter_num_nights=5&refinement_paths%5B%5D=%2Fhomes&date_picker_type=calendar&checkin=2023-10-13&checkout=2023-10-16&search_type=unknown" 
+          
 
 const defaultProps = {
   center: {
@@ -27,6 +29,24 @@ function Travel() {
       alignItems: 'center',
       flexDirection: 'column'
     }}>
+      <Link 
+          href={AIRBNB_LINK}
+          target="_blank"
+          mb={{ mobile: 4, laptop: 6}} 
+          variant="h4" 
+          color={'primary.#4'} 
+          sx={{
+            fontFamily: 'beautiful-simple !important',
+            margin: 4,
+            display: 'block',
+            textDecoration: "none",
+            boxShadow: "none"
+          }}
+        >
+          airbnb
+        </Link>
+
+
       <Box mt={2} mb={2} sx={{ 
         width: { mobile: '100%', tablet: '80%', laptop: '60%'},
         textAlign: 'center'

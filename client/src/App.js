@@ -10,6 +10,7 @@ import theme from './ui/theme';
 import Rsvp from "./pages/Rsvp";
 import Manage from "./pages/manage/Manage";
 import Footer from "./common/Footer";
+import Timeline from "./pages/Timeline";
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/rsvp" element={<Rsvp />} />
+            <Route path="/wedding" element={<Timeline />} />
             <Route path="/travel" element={<Travel />} />
             <Route path="/manage" element={<Manage />} />
           </Routes>   
