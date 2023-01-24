@@ -38,10 +38,12 @@ function ManageRsvp({rsvpList}) {
       width='90%'
       margin='30px auto'
       height='auto'
-      minHeight={400}
       position='relative'
     >
       <DataGrid
+        sx={{
+          minHeight: 400
+        }}
         rows={rsvp}
         columns={columns}
         pageSize={20}
