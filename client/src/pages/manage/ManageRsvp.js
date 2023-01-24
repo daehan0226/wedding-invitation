@@ -38,6 +38,7 @@ function ManageRsvp({rsvpList}) {
       width='90%'
       margin='30px auto'
       height='auto'
+      minHeight={400}
       position='relative'
     >
       <DataGrid
