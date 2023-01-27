@@ -1,17 +1,17 @@
 {
   "files": {
     "main.css": "/static/css/main.ced0d819.css",
-    "main.js": "/static/js/main.77402c37.js",
+    "main.js": "/static/js/main.ca613d55.js",
     "static/media/The-Lovely.ttf": "/static/media/The-Lovely.2e666e8a6c3ce01ebd43.ttf",
     "static/media/Beautiful-in-Simplicity-Italic.otf": "/static/media/Beautiful-in-Simplicity-Italic.b271ff5cacea47899bff.otf",
     "static/media/LiliroseRegular.ttf": "/static/media/LiliroseRegular.0b2e7fead233e93ccf97.ttf",
     "static/media/BeyondSweet-Regular.otf": "/static/media/BeyondSweet-Regular.2beb71ab15442378e988.otf",
     "index.html": "/index.html",
     "main.ced0d819.css.map": "/static/css/main.ced0d819.css.map",
-    "main.77402c37.js.map": "/static/js/main.77402c37.js.map"
+    "main.ca613d55.js.map": "/static/js/main.ca613d55.js.map"
   },
   "entrypoints": [
     "static/css/main.ced0d819.css",
-    "static/js/main.77402c37.js"
+    "static/js/main.ca613d55.js"
   ]
 }
