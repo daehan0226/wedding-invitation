@@ -24,8 +24,8 @@ const timelines = [
 
 function TimeLineText({text}) {
 
-  return <Box m={{ mobile: 5, tablet: 6, laptop: 8, desktop: 10}} sx={{ whiteSpace: 'pre'}} >
-    <Typography m={3} variant={'h4'} textAlign="center" color="primary.#6" >
+  return <Box m={{ mobile: 3, tablet: 6, laptop: 8, desktop: 10}} sx={{ whiteSpace: 'pre'}} >
+    <Typography fontSize={{mobile: 16, tablet: 30, laptop: 40}} textAlign="center" color="primary.#6" >
     {text}
     </Typography>
   </Box>
@@ -126,7 +126,7 @@ function Timeline() {
           <TimeLine key={index} index={index} info={info} ></TimeLine>
         ))}
         </Box>
-      <Box m={3}>
+      <Box m={2}>
         <Typography display={"inline"} variant={'h4'} textAlign="center" color="primary.#6" >
           {"Food served "}
         </Typography>
@@ -134,7 +134,7 @@ function Timeline() {
           will be Chili (veggie option), Brisket, Nacho Bar, and light appetizers.
         </Typography>      
       </Box>
-      <Box m={3}>
+      <Box m={2}>
       <Typography variant={'h4'} display={"inline"} textAlign="center" color="primary.#6" >
         {"Alcohol served "}
       </Typography>
@@ -161,7 +161,7 @@ function Timeline() {
         }}
       />
       </Box>
-      <Box m={3} sx={{ textAlign: 'center'}}>
+      <Box mt={2} mb={2} sx={{ textAlign: 'center'}}>
 
       <Link 
           href="https://www.blackjackvineyards.com/" 
@@ -171,7 +171,7 @@ function Timeline() {
           color={'primary.#4'} 
           sx={{
             fontFamily: 'beautiful-simple !important',
-            margin: 4,
+            marginTop: 2,
             display: 'block',
             textDecoration: "none",
             boxShadow: "none"
@@ -179,7 +179,7 @@ function Timeline() {
         >
           {VENUE}
         </Link>
-        <Box m={2}>
+        <Box mt={2}>
         <img
           src={`${process.env.PUBLIC_URL}/images/venue.jpg`}
             width='100%'
@@ -187,13 +187,15 @@ function Timeline() {
             alt=''
             style={{
               maxWidth: 600,
-              minWidth: 300
+              minWidth: 280
             }}
           />
       </Box>
       <Typography sx={{
             fontFamily: 'beautiful-simple !important',
-            color:'primary.#4'
+            color:'primary.#4',
+            marginTop: 1,
+            marginBottom: 2
            }}
       >
         66 Rifle Range Road, Makanda, IL 62958
