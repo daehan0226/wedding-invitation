@@ -1,25 +1,35 @@
 import React from 'react'
 import Box from '@mui/material/Box';
 import { Typography } from '@mui/material';
+import Link from '@mui/material/Link';
+const VENUE = 'The Wedding Barn at Black Jack Vineyard'
 
 const timelines = [
   {
-    text: 'timeline 1'
+    text: 'Arrival 3:00 PM'
   },
   {
-    text: 'timeline 2'
+    text: 'Paducah Singers \n 3:10 PM'
   },
   {
-    text: 'timeline 3'
+    text: 'Wedding 3:15 PM'
   },
   {
-    text: 'timeline 4'
+    text: 'Food 3:30pm'
+  },
+  {
+    text: 'Lets get this \n party started \n to 10:00 PM'
   }
 ]
 
 function TimeLineText({text}) {
 
-  return <Box m={{ mobile: 5, tablet: 6, laptop: 8, desktop: 10}} color={'primary.#4'}>{text}</Box>
+  return <Box m={{ mobile: 5, tablet: 6, laptop: 8, desktop: 10}} sx={{ whiteSpace: 'pre'}} >
+    <Typography m={3} variant={'h4'} textAlign="center" color="primary.#6" >
+    {text}
+    </Typography>
+  </Box>
+    
 }
 
 function TimeLine({index, info}) {
@@ -28,12 +38,12 @@ function TimeLine({index, info}) {
       <Box sx={{ display: 'flex'}}>
         <Box
           width="50%"
-          height={150}
+          height={100}
           position={"relative"}
         ></Box>
         <Box
           width="50%"
-          height={150}
+          height={100}
           position={"relative"}
           sx={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center'}}
         >
@@ -60,7 +70,7 @@ function TimeLine({index, info}) {
       <Box sx={{ display: 'flex'}}>
         <Box
           width="50%"
-          height={150}
+          height={100}
           position={"relative"}
           sx={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center'}}
         >
@@ -84,7 +94,7 @@ function TimeLine({index, info}) {
         </Box>
         <Box
           width="50%"
-          height={150}
+          height={100}
           position={"relative"}
         ></Box>
       </Box>    
@@ -94,11 +104,11 @@ function TimeLine({index, info}) {
 
 function Timeline() {
   return (
-    <>
+    <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
       <Typography m={3} variant={'h3'} textAlign="center" color="primary.#4" >WEDDING TIMELINE</Typography>
       <Box mt={2} mb={2} sx={{
         position: 'relative',
-        height: 600,
+        height: 500,
         '&::before': {
           content: '""',
           display: "block",
@@ -115,8 +125,82 @@ function Timeline() {
         {timelines.map((info, index)=> (
           <TimeLine key={index} index={index} info={info} ></TimeLine>
         ))}
+        </Box>
+      <Box m={3}>
+        <Typography display={"inline"} variant={'h4'} textAlign="center" color="primary.#6" >
+          {"Food served "}
+        </Typography>
+        <Typography display={"inline"} variant={'h5'} textAlign="center" color="primary.#4" >
+          will be Chili (veggie option), Brisket, Nacho Bar, and light appetizers.
+        </Typography>      
       </Box>
-    </>
+      <Box m={3}>
+      <Typography variant={'h4'} display={"inline"} textAlign="center" color="primary.#6" >
+        {"Alcohol served "}
+      </Typography>
+      <Typography variant={'h5'} display={"inline"} textAlign="center" color="primary.#4" >
+        will be Beer and Wine (varying kinds.) We are asking that guests bring a favorite Alcohol of theirs to the party to share
+      </Typography>
+       
+      </Box>
+      <Box>
+      <Typography variant={'h4'} textAlign="center" color="primary.#6" >
+        Sunday: October 15th
+      </Typography>  
+      <Typography m={1} variant={'h5'} textAlign="center" color="primary.#4" >
+        There will be a pick up game of ultimate frizbee at the SIU fields time to be determined.
+      </Typography>  
+      </Box>
+      <Box sx={{ display: 'flex', justifyContent: 'center', width: {mobile: 200, tablet: 300, laptop: 400, desktop: 500}}} >
+      <img
+        src={`${process.env.PUBLIC_URL}/images/carry_on_back.jpg`}
+        width='80%'
+        alt=''
+        style={{
+          borderRadius: '50%'
+        }}
+      />
+      </Box>
+      <Box m={3} sx={{ textAlign: 'center'}}>
+
+      <Link 
+          href="https://www.blackjackvineyards.com/" 
+          target="_blank"
+          mb={{ mobile: 4, laptop: 6}} 
+          variant="h4" 
+          color={'primary.#4'} 
+          sx={{
+            fontFamily: 'beautiful-simple !important',
+            margin: 4,
+            display: 'block',
+            textDecoration: "none",
+            boxShadow: "none"
+          }}
+        >
+          {VENUE}
+        </Link>
+        <Box m={2}>
+        <img
+          src={`${process.env.PUBLIC_URL}/images/venue.jpg`}
+            width='100%'
+            height='auto'
+            alt=''
+            style={{
+              maxWidth: 600,
+              minWidth: 300
+            }}
+          />
+      </Box>
+      <Typography sx={{
+            fontFamily: 'beautiful-simple !important',
+            color:'primary.#4'
+           }}
+      >
+        66 Rifle Range Road, Makanda, IL 62958
+      </Typography>
+      
+      </Box>
+    </Box>
   );
 }
 
