@@ -153,7 +153,7 @@ function Timeline() {
       </Box>
       <Box sx={{ display: 'flex', justifyContent: 'center', width: {mobile: 200, tablet: 300, laptop: 400, desktop: 500}}} >
       <img
-        src={`${process.env.PUBLIC_URL}/images/carry_on_back.jpg`}
+        src={`${process.env.PUBLIC_URL}/images/circle.png`}
         width='80%'
         alt=''
         style={{
