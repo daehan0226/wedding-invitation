@@ -19,7 +19,7 @@ let theme = createTheme({
             '#3': '#43727A',
             '#4': '#FFE6DE',
             '#5': '#F4B688',
-            '#6': '#5c6bc0',
+            '#6': '#43727A',
         }
     },
     breakpoints: {
