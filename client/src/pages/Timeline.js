@@ -25,7 +25,7 @@ const timelines = [
 function TimeLineText({text}) {
 
   return <Box m={{ mobile: 3, tablet: 6, laptop: 8, desktop: 10}} sx={{ whiteSpace: 'pre'}} >
-    <Typography fontSize={{mobile: 16, tablet: 30, laptop: 40}} textAlign="center" color="primary.#6" >
+    <Typography fontSize={{mobile: 14, tablet: 26, laptop: 32}} textAlign="center" color="primary.#6" >
     {text}
     </Typography>
   </Box>
@@ -104,8 +104,15 @@ function TimeLine({index, info}) {
 
 function Timeline() {
   return (
-    <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-      <Typography m={3} variant={'h3'} textAlign="center" color="primary.#4" >WEDDING TIMELINE</Typography>
+    <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', position: 'relative'}}>
+      <Box sx={{position: 'absolute', right: '-18px', width: { mobile: '100%', tablet: '70%', desktop: '50%', zIndex: -1}, top: '-34px' }} >
+        <img
+          src={`${process.env.PUBLIC_URL}/images/branch.png`}
+          width='100%'
+          alt='branch'
+        />
+      </Box>
+      <Typography m={3} mt={20} fontSize={{mobile: 30, tablet: 40, laptop: 50}} textAlign="center" color="primary.#4" sx={{fontFamily: 'lovely!important;'}} >Wedding Timeline</Typography>
       <Box mt={2} mb={2} sx={{
         position: 'relative',
         height: 500,
@@ -154,7 +161,7 @@ function Timeline() {
       <Box sx={{ display: 'flex', justifyContent: 'center', width: {mobile: 200, tablet: 300, laptop: 400, desktop: 500}}} >
       <img
         src={`${process.env.PUBLIC_URL}/images/circle.png`}
-        width='80%'
+        width='100%'
         alt=''
         style={{
           borderRadius: '50%'

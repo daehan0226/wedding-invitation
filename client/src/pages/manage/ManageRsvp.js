@@ -42,7 +42,8 @@ function ManageRsvp({rsvpList}) {
     >
       <DataGrid
         sx={{
-          minHeight: 400
+          minHeight: 400,
+          fontFamily: 'lovely!important;',
         }}
         rows={rsvp}
         columns={columns}

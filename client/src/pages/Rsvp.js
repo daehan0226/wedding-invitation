@@ -124,21 +124,9 @@ function Rsvp() {
             margin: { mobile: '0', tablet: '0 auto'}
           }}
         >
-          {/* <img
-            src={`${process.env.PUBLIC_URL}/images/flower2.png`}
-            width='50px'
-            height='50px'
-            alt=''
-          /> */}
           <Typography sx={{ textAlign: 'center' }} mt={1} variant="h5" color={'brown.800'} >
                 {"RSVP"}       
           </Typography>
-          {/* <img
-            src={`${process.env.PUBLIC_URL}/images/flower2.png`}
-            width='50px'
-            height='50px'
-            alt=''
-          /> */}
         </Box>
           
         {/* Name */}
