@@ -1,7 +1,7 @@
 import Box from '@mui/material/Box';
 import { useEffect, useState } from 'react';
 import ManageRsvp from './ManageRsvp';
-import { getRsvp } from '../../helper/api';
+import { getRsvp, upsertUser } from '../../helper/api';
 import LoginComponent from './LoginComponent';
 import jwt_decode from "jwt-decode";
 
@@ -25,6 +25,7 @@ function Manage() {
       const token = localStorage.getItem('accessToken');
       const decoded = jwt_decode(token);
       if (decoded?.sub) {
+        upsertUser(decoded.sub)
         setUserId(decoded.sub)
         setLoggedIn(true)
       }
