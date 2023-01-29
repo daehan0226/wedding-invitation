@@ -25,7 +25,7 @@ const timelines = [
 function TimeLineText({text}) {
 
   return <Box m={{ mobile: 3, tablet: 6, laptop: 8, desktop: 10}} sx={{ whiteSpace: 'pre'}} >
-    <Typography fontSize={{mobile: 14, tablet: 26, laptop: 32}} textAlign="center" color="primary.#6" >
+    <Typography fontSize={{mobile: 18, tablet: 26, laptop: 32}} textAlign="center" color="primary.#6" >
     {text}
     </Typography>
   </Box>
@@ -112,7 +112,7 @@ function Timeline() {
           alt='branch'
         />
       </Box>
-      <Typography m={3} mt={20} fontSize={{mobile: 30, tablet: 40, laptop: 50}} textAlign="center" color="primary.#4" sx={{fontFamily: 'lovely!important;'}} >Wedding Timeline</Typography>
+      <Typography mb={3} mt={20} fontSize={{mobile: 32, tablet: 40, laptop: 50}} textAlign="center" color="primary.#4" sx={{fontFamily: 'lovely!important;'}} >Wedding Timeline</Typography>
       <Box mt={2} mb={2} sx={{
         position: 'relative',
         height: 500,

@@ -82,9 +82,9 @@ function Travel() {
       flexDirection: 'column'
     }}>
       {hotels.map(hotel=> (
-        <Box key={hotel.name} sx={{ 
-          width: {mobile: '100%', tablet: '100%'}, display: 'flex', justifyContent: 'space-evenly', flexDirection: {mobile: 'column', tablet: 'row'}, alignItems: 'center' }} >
-          <Box sx={{ width: { mobile : 150, tablet: 300, laptop: 400, desktop: 500 }}}>
+        <Box mb={3} key={hotel.name} sx={{ 
+          width: {mobile: '100%', tablet: '100%'}, display: 'flex', justifyContent: 'space-evenly', flexDirection: {mobile: 'row', tablet: 'row'}, alignItems: 'center' }} >
+          <Box sx={{ width: { mobile : 130, tablet: 300, laptop: 400, desktop: 500 }}}>
             <img
               src={`${process.env.PUBLIC_URL}/images/${hotel.image}`}
               width='100%'
@@ -93,14 +93,14 @@ function Travel() {
               }}
             />    
           </Box>
-          <Box sx={{ width: { mobile : '90%', laptop: 500, desktop: 800}, display: 'flex', alignItems: 'center', flexDirection: 'column' }}>
-            <Typography m={1} mb={3} sx={{ fontSize: { mobile: 16, tablet: 24, laptop: 40, desktop: 50} }} color={'text.white'} >{hotel.name}</Typography>
-            <Typography m={1} sx={{ fontSize: { mobile: 12, tablet: 18, laptop: 24, desktop: 30} }} color={'primary.#4'} >{hotel.address}</Typography>
-            <Typography m={1} mb={2} sx={{ fontSize: { mobile: 12, tablet: 18, laptop: 24, desktop: 30} }} color={'primary.#4'} >{hotel.price}</Typography>
-            <Link target="_blank" mb={1} href={hotel.link} sx={{ fontSize: { mobile: 12, tablet: 18, laptop: 24, desktop: 30}, textDecoration: 'none' }} color={'primary.#6'} >
+          <Box sx={{ width: { mobile : 300, tablet: 400, laptop: 500, desktop: 800}, display: 'flex', alignItems: 'center', flexDirection: 'column' }}>
+            <Typography m={1} sx={{ fontSize: { mobile: 14, tablet: 24, laptop: 40, desktop: 50} }} color={'text.white'} >{hotel.name}</Typography>
+            <Typography m={1} sx={{ fontSize: { mobile: 10, tablet: 18, laptop: 24, desktop: 30} }} color={'primary.#4'} >{hotel.address}</Typography>
+            <Typography m={1} mb={2} sx={{ fontSize: { mobile: 10, tablet: 18, laptop: 24, desktop: 30} }} color={'primary.#4'} >{hotel.price}</Typography>
+            <Link target="_blank" mb={1} href={hotel.link} sx={{ fontSize: { mobile: 10, tablet: 18, laptop: 24, desktop: 30}, textDecoration: 'none' }} color={'primary.#6'} >
               {hotel.fullName}
             </Link>
-            <Typography m={1} sx={{ fontSize: { mobile: 12, tablet: 18, laptop: 24, desktop: 30} }} color={'primary.#4'}>{hotel.distance}</Typography>
+            <Typography m={1} sx={{ fontSize: { mobile: 8, tablet: 16, laptop: 24, desktop: 30} }} color={'primary.#4'}>{hotel.distance}</Typography>
           </Box>
         </Box>
       ))}
