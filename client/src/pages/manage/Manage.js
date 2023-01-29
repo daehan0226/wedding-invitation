@@ -1,104 +1,50 @@
 import Box from '@mui/material/Box';
 import { useEffect, useState } from 'react';
-import { useNavigate } from "react-router-dom";
 import ManageRsvp from './ManageRsvp';
-import ManageLogin from './ManageLogin';
-import axios from 'axios';
-import { API } from '../../config/config';
-
-
-
-
+import { getRsvp } from '../../helper/api';
+import LoginComponent from './LoginComponent';
+import jwt_decode from "jwt-decode";
 
 function Manage() {
-  const [ isLoggedIn, setIsLoggedIn ] = useState(false)
+  const [ loggedIn, setLoggedIn ] = useState(false)
+  const [ userId, setUserId ] = useState("")
   const [ rsvp, setRsvp ] = useState([])
-  const [ username, setUsername ] = useState('')
-
-  const navigate = useNavigate();
-  useEffect(()=> {
-    const isAdmin = true;
-    if (!isAdmin) {
-      navigate("/");
+  useEffect(()=>{
+    async function fetchData() {
+      const data = await getRsvp()
+      setRsvp([...data])
     }
-  },[])
-  
-  function getToken() {
-    const token = JSON.parse(localStorage.getItem("token"))
-    if (token) {
-      return token.access_token
+    if (loggedIn) {
+      fetchData();
     }
-    return null
-  }
-
-  function validateToken(token) {
-    axios.get( 
-        `http://${API}/auth/me`,
-        {
-          headers: { Authorization: `Bearer ${token}` }
-        },
-      ).then((res)=> {
-        if (res.status === 200 && res.data?.payload?.name) {
-          setIsLoggedIn(true)
-          setUsername(res.data.payload.name)
-        }
-        // console.log(`res: ${JSON.stringify(res)}`)
-      }).catch((err)=> {
-        setIsLoggedIn(false)
-        setUsername("")
-        // console.log(`err: ${err}`)
-      });
-  }
-
-
-function getRsvp() {
-  const token = getToken()
-  axios.get( 
-    `http://${API}/rsvp`,
-    {
-      headers: { Authorization: `Bearer ${token}` }
-    },
-  ).then((res)=> {
-    if (res.status === 200 && res.data) {
-      setRsvp(res.data)
-    }
-    // console.log(`res: ${JSON.stringify(res.data)}`)
-  }).catch((err)=> {
-    // console.log(`err: ${err}`)
-  });
-}
+  }, [loggedIn])
 
   useEffect(()=>{
-    const token = getToken()
-    if (token) {
-      validateToken(token)
-    }
+    setLoggedIn(false)
+    try {
+      const token = localStorage.getItem('accessToken');
+      const decoded = jwt_decode(token);
+      if (decoded?.sub) {
+        setUserId(decoded.sub)
+        setLoggedIn(true)
+      }
+    } catch {}
   }, [])
-
-  
-  useEffect(()=>{
-    if (isLoggedIn && username) {
-      getRsvp()
-    }
-  }, [isLoggedIn, username])
-
 
   return (
     <Box
       sx={{
         width: '100%',
-        height: '100%',
+        height: 'auto;',
+        minHeight: '500px',
         position: 'relative',
       }}
     >
-      <p>{username}</p>
-      {(isLoggedIn && username
-        ) ? (
-          <ManageRsvp  rsvpList={rsvp} />
-        ) : (
-          <ManageLogin />
-        )
-      }
+      {loggedIn ? (
+        <ManageRsvp  rsvpList={rsvp} />
+      ) : (
+        <LoginComponent />
+      )}
     </Box>
   );
 }

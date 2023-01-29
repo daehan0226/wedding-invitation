@@ -11,13 +11,10 @@ function StoryFour() {
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-        position: 'relative',
-        textAlign: 'center'
+        textAlign: 'center',
+        backgroundColor: 'primary.#4'
       }}
     >
-      <Typography sx={{ position: 'absolute' }} variant="body1" color={'text.white'}>
-            {"bottom text"}       
-      </Typography>
       <img
         src={`${process.env.PUBLIC_URL}/images/ring.jpg`}
         width='150px'

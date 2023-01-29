@@ -2,7 +2,8 @@ import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 
-const title = 'Alex Dycus && \n Blake D.Brown'
+const title = 'Alex & Blake Brown'
+const date = 'October 14, 2023'
 const links = [
   {
     'link': '/',
@@ -25,36 +26,43 @@ const links = [
 
 function Header() {
   return (
-    <>
       <Box 
         sx={{
-          // backgroundImage: `url(${process.env.PUBLIC_URL}/images/8.jpg)`,
           width: '100%',
-          height: { mobile: '80px', laptop: '100px'},
-          // backgroundPosition: { mobile: '-100px -550px', laptop: '0px -400px'} ,
-          // opacity: '0.9'
+          zIndex: 1000,
+          height: { mobile: '150px', tablet: '170px', laptop: '200px'},
+          backgroundColor: 'primary.#3',
+          position: 'relative',
       }}>
       <Box 
         sx={{
           display: 'flex', 
+          flexDirection: 'column',
           justifyContent: 'center', 
           alignItems: 'center',
-          padding: { mobile: '20px', laptop: '40px'}
+          paddingTop: { mobile: '20px', tablet: '30px'},
         }}>
-          <Typography variant="h3" color={'text.white'} sx={{ fontFamily: 'jose'}} >
+          <Typography variant="h2" color={'primary.#1'} sx={{ 
+            fontFamily: 'lovely !important',
+            fontSize: '28px'
+          }} >
               {title}       
-          </Typography>  
+          </Typography> 
+          <Typography variant="h5" color={'primary.#1'} sx={{ 
+            fontFamily: 'beautiful-simple !important',
+            marginTop: 2,
+            fontSize: '18px'
+          }} >
+              {date}       
+          </Typography> 
       </Box>
-    
-    </Box>
       <Box 
-        mb={1} 
+        mt={{mobile: 1, laptop: 2, desktop: 3}}
         sx={{ 
           display: 'flex', 
           justifyContent: 'space-around', 
           alignItems: 'center'
         }} 
-        // backgroundColor={'text.black'}
         height={{mobile: 40, laptop: 50, desktop: 60}}
       >
         {links.map(({link, title}) => (
@@ -64,13 +72,14 @@ function Header() {
               opacity: .3,
             }
           }} >
-            <Typography variant="body1" color={'text.white'}>
+            <Typography variant="body1" color={'primary.#4'} sx={{ fontFamily: 'beautiful-simple !important', 
+              fontSize: '16px'}} >
               {title}       
             </Typography>   
           </Button>
         ))}        
       </Box>
-      </>
+      </Box>
   );
 }
 

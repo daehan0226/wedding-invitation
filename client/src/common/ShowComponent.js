@@ -6,22 +6,24 @@ const ShowComponent = () =>{
     useEffect(()=>{
       setTimeout(function() {
         setShowElement(false)
-           }, 2000);
-         },
-     [])
+        }, 2000);
+    }, [])
         
     return(
       <div>
          {showElement ? (
-             <Box sx={{
-                display: { mobile: 'flex', laptop: 'none'}
-             }}>
+             <Box 
+                sx={{
+                    display: { mobile: 'block', laptop: 'none'}
+                }}
+                >
                 <img
                     src={`${process.env.PUBLIC_URL}/images/dance_hug.jpg`}
-                    width='100%'
-                    height='auto'
+                    style={{
+                        width: '100%',
+                        height: '100vh'
+                    }}
                     alt=''
-                    style={{opacity:'0.7'}}
                 />   
              </Box>
          ) : (

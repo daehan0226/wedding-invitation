@@ -9,30 +9,35 @@ import Header from './common/Header';
 import theme from './ui/theme';
 import Rsvp from "./pages/Rsvp";
 import Manage from "./pages/manage/Manage";
-import ShowComponent from './common/ShowComponent'
+import Footer from "./common/Footer";
+import Timeline from "./pages/Timeline";
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
-      <ShowComponent />
-      <Header></Header>
       <Box sx={{
         width: '100%',
         height: '100%',
-        boxSizing: 'border-box',
-        paddingBottom: 4,
-        position: 'relative',
-        display: 'block',
-        flexDirection: 'column',
+        display: 'flex',
+        flexDirection: 'column'
       }}>
-        
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/rsvp" element={<Rsvp />} />
-          <Route path="/travel" element={<Travel />} />
-          <Route path="/manage" element={<Manage />} />
-          {/* <Route path="/room/:roomName" element={<Chatroom />} /> */}
-        </Routes>    
+        <Header></Header>
+        <Box
+          sx={{
+            width: '100%',
+            display: 'block',
+            height: 'auto',
+          }}
+        >
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/rsvp" element={<Rsvp />} />
+            <Route path="/wedding" element={<Timeline />} />
+            <Route path="/travel" element={<Travel />} />
+            <Route path="/manage" element={<Manage />} />
+          </Routes>   
+        </Box>
+        <Footer />
       </Box>       
     </ThemeProvider>
   );
