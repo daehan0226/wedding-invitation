@@ -17,6 +17,7 @@ const columns = [
 
 function ManageRsvp({rsvpList}) {
   const [rsvp, setRsvp] = React.useState([]);
+  const [total, setTotal] = React.useState(0);
 
   React.useEffect(()=>{
     setRsvp([])
@@ -24,12 +25,12 @@ function ManageRsvp({rsvpList}) {
       const formattedRsvp = rsvpList.map(rsvp=> { return {
         ...rsvp,
         attend: rsvp.attend ? 'Yes' : 'No',
-        NumberOfPeopel: rsvp.numberOfPeople + 1,
+        numberOfPeople: rsvp.numberOfPeople,
         createdAt: rsvp.createdAt ? rsvp.createdAt.toString() : ''
       }})
-      console.log(formattedRsvp)
+      setTotal(formattedRsvp.map(item => item.numberOfPeople).reduce((prev, next) => prev + next))
       setRsvp([
-        ...formattedRsvp
+        ...formattedRsvp,
       ])
     }
   }, [rsvpList])
@@ -37,12 +38,14 @@ function ManageRsvp({rsvpList}) {
     <Box
       width='90%'
       margin='30px auto'
+      marginBottom={0}
       height='auto'
       position='relative'
     >
+    Total : {total}
       <DataGrid
         sx={{
-          minHeight: 400,
+          minHeight: 300,
           fontFamily: 'lovely!important;',
         }}
         rows={rsvp}

@@ -1,6 +1,5 @@
 import React from 'react'
 import Box from '@mui/material/Box';
-import LocationOnIcon from '@mui/icons-material/LocationOn';
 import Typography from '@mui/material/Typography';
 import { Link } from '@mui/material';
 

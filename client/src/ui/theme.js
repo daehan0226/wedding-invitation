@@ -1,12 +1,10 @@
-import { pink, cyan, brown, grey } from '@mui/material/colors';
+import { brown, grey } from '@mui/material/colors';
 import { createTheme, responsiveFontSizes } from '@mui/material/styles';
 
 
 let theme = createTheme({
     palette: {
         grey,
-        pink,
-        cyan,
         brown,
         text: {
             black: '#000',

@@ -13,6 +13,30 @@ import { createRsvp } from '../helper/api';
 import { useNavigate } from 'react-router-dom';
 
 
+const RsvpBackground = () => {
+  return (
+    <Box
+      sx={{
+        width: { mobile: '100%', tablet: '600px'},
+        display: { mobile: 'block', tablet: 'none'},
+        position: { mobile: 'absolute', tablet: 'none'}
+      }}
+    >
+      <img
+        src={`${process.env.PUBLIC_URL}/images/ring1.jpg`}
+        width='100%'
+        height='450px'
+        alt=''
+        style={{
+          opacity: '0.6',
+          margin: '0 auto'
+        }}
+      />
+    </Box>
+  )
+}
+
+
 function Rsvp() {
   const [name, setName] = useState('');
   const [message, setMessage] = useState('');
@@ -49,7 +73,7 @@ function Rsvp() {
   const confirmSubmit = useConfirm(
     `Is this correct?
       Name: ${name}
-      Attend: ${attend? 'Yes': 'No'}
+      Attend: ${attend ? 'Yes': 'No'}
       Message: ${message}
     `,
     handleSubmit,
@@ -59,15 +83,15 @@ function Rsvp() {
   async function handleSubmit() {
     const newDoc = {
       name,
-      numberOfPeople: attend === 1 ? bringingOne : 0,
-      attend: attend === 1,
+      numberOfPeople: attend ? (bringingOne + 1) : 0,
+      attend,
       message,
       createdAt: (new Date()).toISOString()
     }
     setLoading(true)
     const result = await createRsvp({ newDoc })
     if (result) {
-      navigate('/travel')
+      navigate('/wedding')
     } else {
       alert('Oops, something went wrong. Try later again.')
     }
@@ -83,25 +107,7 @@ function Rsvp() {
           flexDirection: 'column',
         }} 
       >
-        <Box
-          sx={{
-            width: { mobile: '100%', tablet: '600px'},
-            display: { mobile: 'block', tablet: 'none'},
-            position: { mobile: 'absolute', tablet: 'none'}
-          }}
-        >
-          <img
-              src={`${process.env.PUBLIC_URL}/images/ring1.jpg`}
-              width='100%'
-              height='450px'
-              alt=''
-              style={{
-                opacity: '0.6',
-                margin: '0 auto'
-              }}
-            />
-        </Box>
-
+        <RsvpBackground />        
         <Box
         sx={{
           display: 'flex',
@@ -150,8 +156,7 @@ function Rsvp() {
 
         {/* Attending */}
         <FormControl fullWidth sx={{marginTop: 4}}>
-          <Typography sx={{ textAlign: 'left' }} variant="body1" color={'text.black'} sx={{ 
-                fontFamily: 'beautiful-simple !important'}}>
+          <Typography sx={{ textAlign: 'left', fontFamily: 'beautiful-simple !important' }} variant="body1" color={'text.black'} >
             Will you be attending?
           </Typography>
           <RadioGroup
@@ -177,36 +182,35 @@ function Rsvp() {
               Are you bringing +1?  
             </Typography>
             <RadioGroup
-            aria-labelledby="demo-controlled-radio-buttons-group"
-            name="controlled-radio-buttons-group"
-            value={bringingOne}
-            onChange={handleBringingOneChange}
-            sx={{
-              display: 'flex',
-              justifyContent: { mobile : 'left', laptop: 'space-around' },
-              flexDirection: 'row',
-            }}
-          >
-            <FormControlLabel value={1} control={<Radio />} label="Yes" />
-            <FormControlLabel value={0} control={<Radio />} label="No, I am coming alone" />
-          </RadioGroup>
-            
+              aria-labelledby="demo-controlled-radio-buttons-group"
+              name="controlled-radio-buttons-group"
+              value={bringingOne}
+              onChange={handleBringingOneChange}
+              sx={{
+                display: 'flex',
+                justifyContent: { mobile : 'left', laptop: 'space-around' },
+                flexDirection: 'row',
+              }}
+            >
+              <FormControlLabel value={1} control={<Radio />} label="Yes" />
+              <FormControlLabel value={0} control={<Radio />} label="No, I am coming alone" />
+            </RadioGroup>
           </>
         )}
       
       {/* Message */}
       <TextField
-            id="outlined-multiline-static"
-            label="Message"
-            multiline
-            rows={2}
-            inputProps={{ maxLength: 500 }}
-            sx={{marginTop: 3}}
-            value={message}
-            onChange={e=>setMessage(e.target.value)}
-          />
+        id="outlined-multiline-static"
+        label="Message"
+        multiline
+        rows={2}
+        inputProps={{ maxLength: 500 }}
+        sx={{marginTop: 3}}
+        value={message}
+        onChange={e=>setMessage(e.target.value)}
+      />
         <Typography sx={{ textAlign: 'right' }} variant="caption" color={'grey.500'}>
-              {message.length > 450 && (`(${message.length}/500)`)}
+          {message.length > 450 && (`(${message.length}/500)`)}
         </Typography>
       <Button 
         variant='body1'
@@ -219,7 +223,7 @@ function Rsvp() {
       </Button>
         
       </Box>
-      </Box>
+    </Box>
   );
 }
 

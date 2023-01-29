@@ -35,7 +35,8 @@ function Manage() {
     <Box
       sx={{
         width: '100%',
-        height: '600px',
+        height: 'auto;',
+        minHeight: '500px',
         position: 'relative',
       }}
     >
