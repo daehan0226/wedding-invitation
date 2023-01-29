@@ -82,8 +82,8 @@ function Travel() {
     }}>
       {hotels.map(hotel=> (
         <Box mb={3} key={hotel.name} sx={{ 
-          width: {mobile: '100%', tablet: '100%'}, display: 'flex', justifyContent: 'space-evenly', flexDirection: {mobile: 'row', tablet: 'row'}, alignItems: 'center' }} >
-          <Box sx={{ width: { mobile : 130, tablet: 300, laptop: 400, desktop: 500 }}}>
+          width: {mobile: '100%', tablet: '100%'}, display: 'flex', justifyContent: 'center', flexDirection: {mobile: 'row', tablet: 'row'}, alignItems: 'center' }} >
+          <Box ml={2} sx={{ width: { mobile : 100, tablet: 300, laptop: 400, desktop: 500 }}}>
             <img
               src={`${process.env.PUBLIC_URL}/images/${hotel.image}`}
               width='100%'
@@ -92,7 +92,7 @@ function Travel() {
               }}
             />    
           </Box>
-          <Box sx={{ width: { mobile : 300, tablet: 400, laptop: 500, desktop: 800}, display: 'flex', alignItems: 'center', flexDirection: 'column' }}>
+          <Box sx={{ width: { mobile: 300, tablet: 400, laptop: 500, desktop: 800}, display: 'flex', alignItems: 'center', flexDirection: 'column' }}>
             <Typography m={1} sx={{ fontSize: { mobile: 14, tablet: 24, laptop: 40, desktop: 50} }} color={'text.white'} >{hotel.name}</Typography>
             <Typography m={1} sx={{ fontSize: { mobile: 10, tablet: 18, laptop: 24, desktop: 30} }} color={'primary.#4'} >{hotel.address}</Typography>
             <Typography m={1} mb={2} sx={{ fontSize: { mobile: 10, tablet: 18, laptop: 24, desktop: 30} }} color={'primary.#4'} >{hotel.price}</Typography>
