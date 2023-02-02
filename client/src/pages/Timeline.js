@@ -227,7 +227,7 @@ function Timeline() {
           height={{ mobile: '500px', laptop: 600, desktop: 700 }}
         >
           <GoogleMapReact
-            bootstrapURLKeys={{ key: "" }}  //  // AIzaSyCpmHv9f2_7W6kKpYqfa5ZFG0cEzvo8mC4
+            bootstrapURLKeys={{ key: GOOGLEMapApiKey }}  //  // AIzaSyCpmHv9f2_7W6kKpYqfa5ZFG0cEzvo8mC4
             defaultCenter={defaultProps.center}
             defaultZoom={defaultProps.zoom}
           >
