@@ -8,9 +8,9 @@ const timelines = [
   {
     text: 'Arrival 3:00 PM'
   },
-  {
-    text: 'Paducah Singers \n 3:10 PM'
-  },
+  // {
+  //   text: 'Paducah Singers \n 3:10 PM'
+  // },
   {
     text: 'Wedding 3:15 PM'
   },
@@ -38,12 +38,12 @@ function TimeLine({index, info}) {
       <Box sx={{ display: 'flex'}}>
         <Box
           width="50%"
-          height={100}
+          height={{mobile: 70, lpatop: 100}}
           position={"relative"}
         ></Box>
         <Box
           width="50%"
-          height={100}
+          height={{mobile: 70, lpatop: 100}}
           position={"relative"}
           sx={{ display: 'flex', justifyContent: 'flex-start', alignItems: 'center'}}
         >
@@ -70,7 +70,7 @@ function TimeLine({index, info}) {
       <Box sx={{ display: 'flex'}}>
         <Box
           width="50%"
-          height={100}
+          height={{mobile: 70, lpatop: 100}}
           position={"relative"}
           sx={{ display: 'flex', justifyContent: 'flex-end', alignItems: 'center'}}
         >
@@ -94,7 +94,7 @@ function TimeLine({index, info}) {
         </Box>
         <Box
           width="50%"
-          height={100}
+          height={{mobile: 70, lpatop: 100}}
           position={"relative"}
         ></Box>
       </Box>    
@@ -105,17 +105,18 @@ function TimeLine({index, info}) {
 function Timeline() {
   return (
     <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', position: 'relative'}}>
-      <Box sx={{position: 'absolute', right: '-18px', width: { mobile: '100%', tablet: '70%', desktop: '50%', zIndex: -1}, top: '-34px' }} >
+      <Box sx={{position: 'absolute', right: '0px', width: { mobile: '100%'}, zIndex: -1, height: 150, top: '0px' }} >
         <img
           src={`${process.env.PUBLIC_URL}/images/branch.png`}
           width='100%'
+          height={300}
           alt='branch'
         />
       </Box>
       <Typography mb={3} mt={20} fontSize={{mobile: 32, tablet: 40, laptop: 50}} textAlign="center" color="primary.#4" sx={{fontFamily: 'lovely!important;'}} >Wedding Timeline</Typography>
       <Box mt={2} mb={2} sx={{
         position: 'relative',
-        height: 500,
+        height: {mobile: 280, laptop: 400},
         '&::before': {
           content: '""',
           display: "block",
@@ -158,15 +159,15 @@ function Timeline() {
         There will be a pick up game of ultimate frizbee at the SIU fields time to be determined.
       </Typography>  
       </Box>
-      <Box sx={{ display: 'flex', justifyContent: 'center', width: {mobile: 200, tablet: 300, laptop: 400, desktop: 500}}} >
-      <img
-        src={`${process.env.PUBLIC_URL}/images/circle.png`}
-        width='100%'
-        alt=''
-        style={{
-          borderRadius: '50%'
-        }}
-      />
+      <Box sx={{ display: 'flex', justifyContent: 'center', width: {mobile: "90%", laptop: "70%" }}} >
+        <img
+          src={`${process.env.PUBLIC_URL}/images/circle.png`}
+          width={"100%"}
+          alt=''
+          style={{
+            borderRadius: '50%'
+          }}
+        />
       </Box>
       <Box mt={2} mb={2} sx={{ textAlign: 'center'}}>
 

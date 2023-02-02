@@ -30,7 +30,7 @@ function Header() {
         sx={{
           width: '100%',
           zIndex: 1000,
-          height: { mobile: '150px', tablet: '170px', laptop: '200px'},
+          height: { mobile: '150px', tablet: '170px', laptop: '200px', desktop: '200px'},
           backgroundColor: 'primary.#3',
           position: 'relative',
       }}>
@@ -44,20 +44,20 @@ function Header() {
         }}>
           <Typography variant="h2" color={'primary.#1'} sx={{ 
             fontFamily: 'lovely !important',
-            fontSize: '28px'
+            fontSize: { mobile: '28px', tablet: '32px', laptop: '36px', desktop: '40px' }
           }} >
               {title}       
           </Typography> 
           <Typography variant="h5" color={'primary.#1'} sx={{ 
             fontFamily: 'beautiful-simple !important',
             marginTop: 2,
-            fontSize: '18px'
+            fontSize: { mobile: '18px', tablet: '22px', laptop: '26px', desktop: '30px' }
           }} >
               {date}       
           </Typography> 
       </Box>
       <Box 
-        mt={{mobile: 1, laptop: 2, desktop: 3}}
+        mt={1}
         sx={{ 
           display: 'flex', 
           justifyContent: 'space-around', 
@@ -73,7 +73,7 @@ function Header() {
             }
           }} >
             <Typography variant="body1" color={'primary.#4'} sx={{ fontFamily: 'beautiful-simple !important', 
-              fontSize: '16px'}} >
+              fontSize: { mobile: '16px', tablet: '20px', laptop: '24px', desktop: '28px' }}} >
               {title}       
             </Typography>   
           </Button>

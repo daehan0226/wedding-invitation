@@ -54,11 +54,11 @@ function StoryThree() {
                 fontFamily: 'lilirose !important',
                 textAlign: 'center',
                 fontSize: { mobile: '30px', tablet: '34px', laptop: '40px' },
-                marginTop: { mobile: '100px', tablet: '100px', laptop: '100px'}
+                marginTop: { mobile: '100px', tablet: '100px', laptop: '50px'}
                 }} >
                 {title}       
             </Typography>
-            <Typography mt={{ mobile: 18, tablet: 27, laptop: 33}} mb={{ mobile: 2, laptop: 3}} variant="h4" color={'text.white'} sx={{
+            <Typography mt={{ mobile: 18, tablet: 30, laptop: 25}} mb={{ mobile: 2, laptop: 3}} variant="h4" color={'text.white'} sx={{
               fontSize: { mobile: '14px', tablet: '17px', laptop: '20px' },
             }} >
                 {contextOne}       

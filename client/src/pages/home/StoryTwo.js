@@ -38,7 +38,7 @@ function StoryTwo() {
         }}
       >
           <img
-              src={`${process.env.PUBLIC_URL}/images/nose_kiss.jpg`}
+              src={`${process.env.PUBLIC_URL}/images/dday.jpg`}
               style={{
                 width: '100%',
                 height: 'auto',
