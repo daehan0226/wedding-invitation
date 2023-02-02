@@ -1,8 +1,22 @@
 import React from 'react'
 import Box from '@mui/material/Box';
 import { Typography } from '@mui/material';
+import GoogleMapReact from 'google-map-react';
+import { GOOGLEMapApiKey } from '../config/config';
+import LocationOnIcon from '@mui/icons-material/LocationOn';
+
 import Link from '@mui/material/Link';
 const VENUE = 'The Wedding Barn at Black Jack Vineyard'
+const defaultProps = {
+  center: {
+    lat: 37.66377,
+    lng: -89.22364
+  },
+  zoom: 13
+};
+
+const AnyReactComponent = () => <div style={{width: '300px'}}><LocationOnIcon /><Typography>{'Here'}</Typography></div>;
+
 
 const timelines = [
   {
@@ -187,17 +201,42 @@ function Timeline() {
         >
           {VENUE}
         </Link>
-        <Box mt={2}>
-        <img
-          src={`${process.env.PUBLIC_URL}/images/venue.jpg`}
-            width='100%'
-            height='auto'
-            alt=''
-            style={{
-              maxWidth: 600,
-              minWidth: 280
-            }}
-          />
+        
+      <Box mt={2} mb={2} sx={{ 
+        width: '100%',
+        textAlign: 'center',
+        display: 'flex',
+        flexDirection: {mobile: 'column', laptop:'row'},
+        justifyContent: 'space-evenly',
+        alignItems: 'center'
+      }}>
+        <Box
+          m={1}
+          width={{ mobile: '90%', laptop: 500, desktop: 600 }}
+          height={{ mobile: 'auto', laptop: 600, desktop: 700 }}
+          >
+          <img
+            src={`${process.env.PUBLIC_URL}/images/barn.jpg`}
+              width='100%'
+              height='100%'
+              alt='barn'
+            />
+        </Box>
+        <Box
+          width={{ mobile: '90%', laptop: 500, desktop: 600 }}
+          height={{ mobile: '500px', laptop: 600, desktop: 700 }}
+        >
+          <GoogleMapReact
+            bootstrapURLKeys={{ key: "" }}  //  // AIzaSyCpmHv9f2_7W6kKpYqfa5ZFG0cEzvo8mC4
+            defaultCenter={defaultProps.center}
+            defaultZoom={defaultProps.zoom}
+          >
+            {/* <AnyReactComponent
+              lat={defaultProps.center.lat}
+              lng={defaultProps.center.lng}
+            /> */}
+          </GoogleMapReact>
+        </Box>
       </Box>
       <Typography sx={{
             fontFamily: 'beautiful-simple !important',
