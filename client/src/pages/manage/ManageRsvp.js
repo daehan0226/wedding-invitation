@@ -3,13 +3,19 @@ import * as React from 'react';
 import { DataGrid } from '@mui/x-data-grid';
 
 const columns = [
-  { field: 'name', headerName: 'Name', minWidth: 300 },
+  { field: 'name', headerName: 'Name', minWidth: 100 },
   { field: 'attend', headerName: 'Attend', width: 100 },
   { field: 'numberOfPeople', headerName: 'Number', width: 100, type: 'number' },
   {
     field: 'message',
     headerName: 'Message',
-    minWidth: 600,
+    minWidth: 300,
+    type: 'text'
+  },
+  {
+    field: 'request',
+    headerName: 'Song request',
+    minWidth: 300,
     type: 'text'
   },
   { field: 'createdAt', headerName: 'Submit Date', width: 200 },

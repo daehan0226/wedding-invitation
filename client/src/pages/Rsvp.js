@@ -17,19 +17,19 @@ const RsvpBackground = () => {
   return (
     <Box
       sx={{
-        width: { mobile: '100%', tablet: '600px'},
-        display: { mobile: 'block', tablet: 'none'},
-        position: { mobile: 'absolute', tablet: 'none'}
+        width: { mobile: '100%'},
+        display: { mobile: 'block', tablet: 'none' },
+        position: { mobile: 'absolute', tablet: 'none' }
       }}
     >
       <img
         src={`${process.env.PUBLIC_URL}/images/ring1.jpg`}
         width='100%'
-        height='450px'
         alt=''
         style={{
           opacity: '0.6',
-          margin: '0 auto'
+          margin: '0 auto',
+          minHeight: '600px'
         }}
       />
     </Box>
@@ -39,6 +39,7 @@ const RsvpBackground = () => {
 
 function Rsvp() {
   const [name, setName] = useState('');
+  const [request, setRequest] = useState('');
   const [message, setMessage] = useState('');
   const [nameError, setNameError] = useState('');
   const [bringingOne, setBringingOne] = useState(0);
@@ -75,6 +76,7 @@ function Rsvp() {
       Name: ${name}
       Attend: ${attend ? 'Yes': 'No'}
       Message: ${message}
+      Song Request: ${request}
     `,
     handleSubmit,
     () => {}
@@ -86,6 +88,7 @@ function Rsvp() {
       numberOfPeople: attend ? (bringingOne + 1) : 0,
       attend,
       message,
+      request,
       createdAt: (new Date()).toISOString()
     }
     setLoading(true)
@@ -130,13 +133,13 @@ function Rsvp() {
             margin: { mobile: '0', tablet: '0 auto'}
           }}
         >
-          <Typography sx={{ textAlign: 'center' }} mt={1} variant="h5" color={'brown.800'} >
+          <Typography sx={{ textAlign: 'center' }} mt={8} variant="h5" color={'brown.800'} >
                 {"RSVP"}       
           </Typography>
         </Box>
           
         {/* Name */}
-        <Typography sx={{ textAlign: 'left' }} mt={3} variant="body1" color={'text.black'}>
+        <Typography sx={{ textAlign: 'left' }} mt={2} variant="body1" color={'text.black'}>
               Name
         </Typography>
         <Input
@@ -197,6 +200,21 @@ function Rsvp() {
             </RadioGroup>
           </>
         )}
+
+        {/** Song request */}
+        <TextField
+          id="outlined-multiline-static"
+          label="Song request"
+          multiline
+          rows={2}
+          inputProps={{ maxLength: 500 }}
+          sx={{marginTop: 4}}
+          value={request}
+          onChange={e=>setRequest(e.target.value)}
+        />
+          <Typography sx={{ textAlign: 'right' }} variant="caption" color={'grey.500'}>
+            {request.length > 450 && (`(${request.length}/500)`)}
+          </Typography>
       
       {/* Message */}
       <TextField
@@ -205,7 +223,7 @@ function Rsvp() {
         multiline
         rows={2}
         inputProps={{ maxLength: 500 }}
-        sx={{marginTop: 3}}
+        sx={{marginTop: 4}}
         value={message}
         onChange={e=>setMessage(e.target.value)}
       />
@@ -213,9 +231,10 @@ function Rsvp() {
           {message.length > 450 && (`(${message.length}/500)`)}
         </Typography>
       <Button 
+        mt={3}
         variant='body1'
         color={'text.black'} 
-        sx={{ marginTop: attend === 1 ? 'auto' : '20px', marginBottom: '20px' }} 
+        sx={{ marginTop: 6 }} 
         onClick={confirmSubmit}
         disabled={name === '' || nameError !== ''}
       >
