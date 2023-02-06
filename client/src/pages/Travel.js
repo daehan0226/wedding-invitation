@@ -66,7 +66,7 @@ const hotels = [
     fullName: "Choice Hotels", 
     price: "Range - varies/per night", 
     link: "http://www.choicehotels.com/illinois/carbondale/hotels?checkInDate=2023-10-12&checkOutDate=2023-10-16",
-    image: "choice.png"
+    image: "hotel.png"
   }
 ]
 
@@ -92,8 +92,8 @@ function Travel() {
               }}
             />    
           </Box>
-          <Box sx={{ width: { mobile: 300, tablet: 400, laptop: 500, desktop: 800}, display: 'flex', alignItems: 'center', flexDirection: 'column' }}>
-            <Typography m={{mobile:0.5, laptop:1}} sx={{ fontSize: { mobile: 12, tablet: 24, laptop: 40, desktop: 50}, fontFamily: 'lovely!important;' }} color={'text.white'} >{hotel.name}</Typography>
+          <Box sx={{ width: { mobile: 230, tablet: 400, laptop: 500, desktop: 800}, display: 'flex', alignItems: 'center', flexDirection: 'column' }}>
+            <Typography m={{mobile:0.5, laptop:1}} sx={{ fontSize: { mobile: 11, tablet: 24, laptop: 40, desktop: 50}, fontFamily: 'lovely!important;' }} color={'text.white'} >{hotel.name}</Typography>
             <Typography m={{mobile:0.5, laptop:1}} sx={{ fontSize: { mobile: 9, tablet: 18, laptop: 24, desktop: 30} }} color={'primary.#4'} >{hotel.address}</Typography>
             <Typography m={{mobile:0.5, laptop:1}} mb={{mobile: 1, laptop:2}} sx={{ fontSize: { mobile: 9, tablet: 18, laptop: 24, desktop: 30} }} color={'primary.#4'} >{hotel.price}</Typography>
             <Link target="_blank" m={{mobile:0.5, laptop:1}} href={hotel.link} sx={{ fontSize: { mobile: 9, tablet: 18, laptop: 24, desktop: 30}, textDecoration: 'none' }} color={'primary.#6'} >
