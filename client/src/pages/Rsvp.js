@@ -11,6 +11,7 @@ import { useConfirm } from '../hooks/useConfrim'
 import { useEffect, useState } from 'react';
 import { createRsvp } from '../helper/api';
 import { useNavigate } from 'react-router-dom';
+import { Backdrop } from '@mui/material';
 
 
 const RsvpBackground = () => {
@@ -29,7 +30,7 @@ const RsvpBackground = () => {
         style={{
           opacity: '0.6',
           margin: '0 auto',
-          minHeight: '600px'
+          minHeight: '800px'
         }}
       />
     </Box>
@@ -102,6 +103,11 @@ function Rsvp() {
   }
 
   return (
+      <>
+        <Backdrop
+          sx={{ color: '#fff', zIndex: 10000 }}
+          open={loading}
+        ></Backdrop>
       <Box
         sx={{ 
           width: '100%',
@@ -243,6 +249,8 @@ function Rsvp() {
         
       </Box>
     </Box>
+    
+    </>
   );
 }
 
