@@ -19,8 +19,8 @@ const RsvpBackground = () => {
     <Box
       sx={{
         width: { mobile: '100%'},
-        display: { mobile: 'block', tablet: 'none' },
-        position: { mobile: 'absolute', tablet: 'none' }
+        display: { mobile: 'block'},
+        position: { mobile: 'absolute' }
       }}
     >
       <img
@@ -139,13 +139,13 @@ function Rsvp() {
             margin: { mobile: '0', tablet: '0 auto'}
           }}
         >
-          <Typography sx={{ textAlign: 'center' }} mt={8} variant="h5" color={'brown.800'} >
+          <Typography sx={{ textAlign: 'center' }} mt={8} variant="h3" color={'brown.800'} >
                 {"RSVP"}       
           </Typography>
         </Box>
           
         {/* Name */}
-        <Typography sx={{ textAlign: 'left' }} mt={2} variant="body1" color={'text.black'}>
+        <Typography sx={{ textAlign: 'left' }} mt={2} variant="h5" color={'text.black'}>
               Name
         </Typography>
         <Input
@@ -156,7 +156,7 @@ function Rsvp() {
           onBlur={(e)=>onBlurHandler(e.target.value)}
           error={nameError !== ''}
         />
-        <Typography sx={{ textAlign: 'left' }} variant="caption " color={'red'}>
+        <Typography sx={{ textAlign: 'left' }} variant="caption" color={'red'}>
             {nameError}       
         </Typography>
         <Typography sx={{ textAlign: 'right' }} variant="caption" color={'grey.500'}>
@@ -165,7 +165,7 @@ function Rsvp() {
 
         {/* Attending */}
         <FormControl fullWidth sx={{marginTop: 4}}>
-          <Typography sx={{ textAlign: 'left', fontFamily: 'beautiful-simple !important' }} variant="body1" color={'text.black'} >
+          <Typography sx={{ textAlign: 'left', fontFamily: 'beautiful-simple !important' }} variant="h5" color={'text.black'} >
             Will you be attending?
           </Typography>
           <RadioGroup
@@ -187,7 +187,7 @@ function Rsvp() {
         {attend === 1 && (
           <>
           {/* Number of people */}
-            <Typography sx={{ textAlign: 'left' }} mt={3} variant="body1" color={'text.black'}>
+            <Typography sx={{ textAlign: 'left' }} mt={3} variant="h5" color={'text.black'}>
               Are you bringing +1?  
             </Typography>
             <RadioGroup
@@ -237,9 +237,7 @@ function Rsvp() {
           {message.length > 450 && (`(${message.length}/500)`)}
         </Typography>
       <Button 
-        mt={3}
-        variant='body1'
-        color={'text.black'} 
+        size="large"
         sx={{ marginTop: 6 }} 
         onClick={confirmSubmit}
         disabled={name === '' || nameError !== ''}
