@@ -24,7 +24,7 @@ const RsvpBackground = () => {
       }}
     >
       <img
-        src={`${process.env.PUBLIC_URL}/images/ring1.jpg`}
+        src={`${process.env.PUBLIC_URL}/images/rsvp.jpg`}
         width='100%'
         alt=''
         style={{
@@ -139,14 +139,14 @@ function Rsvp() {
             margin: { mobile: '0', tablet: '0 auto'}
           }}
         >
-          <Typography sx={{ textAlign: 'center' }} mt={8} variant="h3" color={'brown.800'} >
+          <Typography sx={{ textAlign: 'center' }} mt={8} variant="h3" color={'text.black'} >
                 {"RSVP"}       
           </Typography>
         </Box>
           
         {/* Name */}
         <Typography sx={{ textAlign: 'left' }} mt={2} variant="h5" color={'text.black'}>
-              Name
+              Name (both you and any guest)
         </Typography>
         <Input
           type='text'  
@@ -160,7 +160,7 @@ function Rsvp() {
             {nameError}       
         </Typography>
         <Typography sx={{ textAlign: 'right' }} variant="caption" color={'grey.500'}>
-          {name.length > 60 && (`(${name.length}/70)`)}
+          {name.length > 180 && (`(${name.length}/200)`)}
         </Typography>
 
         {/* Attending */}
@@ -208,19 +208,23 @@ function Rsvp() {
         )}
 
         {/** Song request */}
-        <TextField
-          id="outlined-multiline-static"
-          label="Song request"
-          multiline
-          rows={2}
-          inputProps={{ maxLength: 500 }}
-          sx={{marginTop: 4}}
-          value={request}
-          onChange={e=>setRequest(e.target.value)}
-        />
-          <Typography sx={{ textAlign: 'right' }} variant="caption" color={'grey.500'}>
-            {request.length > 450 && (`(${request.length}/500)`)}
-          </Typography>
+        {attend === 1 ? (
+          <>
+            <TextField
+              id="outlined-multiline-static"
+              label="Want to request a song? (Include name and artist)"
+              multiline
+              rows={2}
+              inputProps={{ maxLength: 500 }}
+              sx={{marginTop: 4}}
+              value={request}
+              onChange={e=>setRequest(e.target.value)}
+            />
+            <Typography sx={{ textAlign: 'right' }} variant="caption" color={'grey.500'}>
+              {request.length > 450 && (`(${request.length}/500)`)}
+            </Typography>
+        </>
+      ) : null}
       
       {/* Message */}
       <TextField
@@ -233,9 +237,15 @@ function Rsvp() {
         value={message}
         onChange={e=>setMessage(e.target.value)}
       />
-        <Typography sx={{ textAlign: 'right' }} variant="caption" color={'grey.500'}>
-          {message.length > 450 && (`(${message.length}/500)`)}
+      <Typography sx={{ textAlign: 'right' }} variant="caption" color={'grey.500'}>
+        {message.length > 450 && (`(${message.length}/500)`)}
+      </Typography>
+
+      {attend === 1 ? (
+        <Typography mt={3} sx={{ textAlign: 'left' }} variant="body1" color={'text.black'}>
+          We are so excited to have you celebrate this day with us! We are asking (if possible) guests bring their favorite alcohol drink to share. Varying beer and wine will also be provided.
         </Typography>
+      ) : null}
       <Button 
         size="large"
         sx={{ marginTop: 6 }} 

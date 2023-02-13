@@ -161,7 +161,7 @@ function Timeline() {
         {"Alcohol served "}
       </Typography>
       <Typography variant={'h5'} display={"inline"} textAlign="center" color="primary.#4" >
-        will be Beer and Wine (varying kinds.) We are asking that guests bring a favorite Alcohol of theirs to the party to share
+        will be Beer and Wine (varying kinds.) We are asking (if possible) guests bring their favorite alcohol drink to share.
       </Typography>
        
       </Box>
