@@ -11,10 +11,12 @@ import { useConfirm } from '../hooks/useConfrim'
 import { useEffect, useState } from 'react';
 import { createRsvp } from '../helper/api';
 import { useNavigate } from 'react-router-dom';
-import { Backdrop } from '@mui/material';
+import { Backdrop, useMediaQuery } from '@mui/material';
 
 
 const RsvpBackground = () => {
+  const isTablet = useMediaQuery('(min-width:600px)');
+
   return (
     <Box
       sx={{
@@ -24,7 +26,7 @@ const RsvpBackground = () => {
       }}
     >
       <img
-        src={`${process.env.PUBLIC_URL}/images/rsvp.jpg`}
+        src={`${process.env.PUBLIC_URL}/images/${isTablet ? 'rsvp' : 'ring'}.jpg`}
         width='100%'
         alt=''
         style={{
