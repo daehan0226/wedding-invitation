@@ -42,3 +42,8 @@ ul {
 #root {
   margin: 0;
 }
+
+.MuiDataGrid-cellContent {
+  white-space: normal;
+  word-wrap: break-word;
+}
