@@ -11,6 +11,7 @@ import Rsvp from "./pages/Rsvp";
 import Manage from "./pages/manage/Manage";
 import Footer from "./common/Footer";
 import Timeline from "./pages/Timeline";
+import Registry from "./pages/Registry";
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
             <Route path="/rsvp" element={<Rsvp />} />
             <Route path="/wedding" element={<Timeline />} />
             <Route path="/travel" element={<Travel />} />
+            <Route path="/registry" element={<Registry />} />
             <Route path="/manage" element={<Manage />} />
           </Routes>   
         </Box>

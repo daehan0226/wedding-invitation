@@ -32,8 +32,11 @@ const timelines = [
     text: 'Food 3:30pm'
   },
   {
-    text: 'Lets get this \n party started \n to 10:00 PM'
-  }
+    text: 'Lets get this \n party started \n  4:00 PM'
+  },
+  {
+    text: 'End of Night \n 10:00 PM'
+  },
 ]
 
 function TimeLineText({text}) {
@@ -123,14 +126,14 @@ function Timeline() {
         <img
           src={`${process.env.PUBLIC_URL}/images/branch.png`}
           width='100%'
-          height={300}
+          height={400}
           alt='branch'
         />
       </Box>
       <Typography mb={3} mt={20} fontSize={{mobile: 32, tablet: 40, laptop: 50}} textAlign="center" color="primary.#4" sx={{fontFamily: 'lovely!important;'}} >Wedding Timeline</Typography>
       <Box mt={2} mb={2} sx={{
         position: 'relative',
-        height: {mobile: 280, laptop: 400},
+        height: {mobile: 400, laptop: 400},
         '&::before': {
           content: '""',
           display: "block",

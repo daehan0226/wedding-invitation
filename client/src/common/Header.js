@@ -21,6 +21,10 @@ const links = [
     'link': '/travel',
     'title': 'TRAVEL'
   },
+  {
+    'link': '/registry',
+    'title': 'REGISTRY'
+  },
 ]
 
 
@@ -61,7 +65,7 @@ function Header() {
         sx={{ 
           display: 'flex', 
           justifyContent: 'space-around', 
-          alignItems: 'center'
+          alignItems: 'center',
         }} 
         height={{mobile: 40, laptop: 50, desktop: 60}}
       >
@@ -70,7 +74,8 @@ function Header() {
             "& .MuiTouchRipple-root span":{
               backgroundColor: 'white!important',
               opacity: .3,
-            }
+            },
+            minWidth: 0,
           }} >
             <Typography variant="body1" color={'primary.#4'} sx={{ fontFamily: 'beautiful-simple !important', 
               fontSize: { mobile: '16px', tablet: '20px', laptop: '24px', desktop: '28px' }}} >
