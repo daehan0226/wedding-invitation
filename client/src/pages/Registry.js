@@ -6,6 +6,11 @@ import { Link, useMediaQuery } from '@mui/material';
 
 const registryLink = 'https://www.honeyfund.com/site/dycus-brown-10-14-2023'
 
+const registryLinkImages = [
+  `${process.env.PUBLIC_URL}/images/registry1.webp`,
+  `${process.env.PUBLIC_URL}/images/registry2.webp`
+]
+
 function Registry() {
   const isTablet = useMediaQuery('(min-width:600px)');
 
@@ -34,9 +39,10 @@ function Registry() {
           flexDirection: { mobile: 'column', laptop: 'row'}
         }}
       >
-        <Link target="_blank" href={registryLink} mt={2}>
+        {registryLinkImages.map(i=>(
+          <Link key={i} target="_blank" href={registryLink} mt={2}>
           <img
-            src={`${process.env.PUBLIC_URL}/images/registry1.webp`}
+            src={i}
             width={isTablet ? 500 : 250}
             height='auto'
             alt=''
@@ -45,18 +51,7 @@ function Registry() {
             }}
           /> 
         </Link>
-        
-        <Link target="_blank"href={registryLink} mt={2}>
-        <img
-          src={`${process.env.PUBLIC_URL}/images/registry2.webp`}
-          width={isTablet ? 500 : 250}
-          height='auto'
-          alt=''
-          style={{          
-            cursor: 'pointer',
-          }}
-          />   
-        </Link>
+        ))}
       </Box>
       <Typography m={{mobile:0.5, laptop:1}} mb={{ mobile: 2, laptop: 6}} sx={{ fontSize: { mobile: 20, tablet: 25, laptop: 30, desktop: 40} }} color={'primary.#6'}>
         We can't wait to celebrate with you in October!
