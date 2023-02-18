@@ -18,8 +18,8 @@ function Registry() {
       alignItems: 'center',
       flexDirection: 'column'
     }}>
-      <Typography m={{mobile:0.5, laptop:1}} sx={{ fontSize: { mobile: 15, tablet: 24, laptop: 40, desktop: 46}, fontFamily: 'lovely!important;' }} color={'text.white'} >Registry</Typography>
-      <Typography m={{mobile:0.5, laptop:1}} sx={{ fontSize: { mobile: 12, tablet: 20, laptop: 30, desktop: 40} }} color={'primary.#6'}>
+      <Typography m={{mobile:0.5, laptop:1}} sx={{ fontSize: { mobile: 20, tablet: 30, laptop: 40, desktop: 50}, fontFamily: 'lovely!important;' }} color={'text.white'} >Registry</Typography>
+      <Typography m={{mobile:0.5, laptop:1}} sx={{ fontSize: { mobile: 16, tablet: 25, laptop: 30, desktop: 40} }} color={'primary.#6'}>
         We appreciate any gifts toward our Honeymoon or our Homestead fund! Thank you!
       </Typography>
 
@@ -58,7 +58,7 @@ function Registry() {
           />   
         </Link>
       </Box>
-      <Typography m={{mobile:0.5, laptop:1}} mb={{ mobile: 2, laptop: 6}} sx={{ fontSize: { mobile: 12, tablet: 20, laptop: 30, desktop: 40} }} color={'primary.#6'}>
+      <Typography m={{mobile:0.5, laptop:1}} mb={{ mobile: 2, laptop: 6}} sx={{ fontSize: { mobile: 16, tablet: 25, laptop: 30, desktop: 40} }} color={'primary.#6'}>
         We can't wait to celebrate with you in October!
       </Typography>
     </Box>
