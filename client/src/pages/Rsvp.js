@@ -32,7 +32,7 @@ const RsvpBackground = () => {
         style={{
           opacity: '0.6',
           margin: '0 auto',
-          minHeight: '800px'
+          minHeight: `${isTablet ? '1000px' : '900px'}`
         }}
       />
     </Box>
@@ -49,6 +49,7 @@ function Rsvp() {
   const [attend, setAttend] = useState(1);
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const isTablet = useMediaQuery('(min-width:600px)');
 
   
   const handleAttendChange = (event) => {
@@ -244,7 +245,7 @@ function Rsvp() {
       </Typography>
 
       {attend === 1 ? (
-        <Typography mt={3} sx={{ textAlign: 'left' }} variant="body1" color={'text.black'}>
+        <Typography mt={3} sx={{ textAlign: 'left' }} variant={`${isTablet ? 'h3' : 'h5'}`} color={'text.black'}>
           We are so excited to have you celebrate this day with us! We are asking (if possible) guests bring their favorite alcohol drink to share. Varying beer and wine will also be provided.
         </Typography>
       ) : null}
